@@ -121,17 +121,25 @@
 
       function createListBuilding(buildingsJson) {
 
-      var result = "";
-      result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
-      for(var i=0; i<buildingsJson.length; i++) {
-        result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
-        result += "</a></li>";
-      }
-  
-      result +="</ul>"
+        var ordenationAux = [];
+        for(var i=0; i<buildingsJson.length; i++) {
+          ordenationAux.push([buildingsJson[i].name, buildingsJson[i].id])
+        }
+        ordenationAux.sort(sortFunction);
 
-      return result;
-  }
+
+        var result = "";
+        result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+        for(var i=0; i<buildingsJson.length; i++) {
+          // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
+          result += "<li><a onClick = 'renderBuildingPage("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+          result += "</a></li>";
+        }
+  
+        result +="</ul>"
+
+        return result;
+      }
     var total = createListBuilding(buildings.building);
     document.getElementById('listBuilding').innerHTML = total;
 
@@ -172,6 +180,16 @@
     }
     function resetCurrentBuilding(){
       currentBuildingId = 999;
+    }
+
+
+    function sortFunction(a, b) {
+      if (a[0] === b[0]) {
+        return 0;
+      }
+      else {
+        return (a[0] < b[0]) ? -1 : 1;
+      }
     }
 
 
