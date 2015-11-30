@@ -57,10 +57,6 @@
 <body>
 <div data-role="page" id="homePage">
 
-<!--   <div data-role="header">
-    <h1>TDT</h1>
-    <a href="#bars" data-icon="gear" class="ui-btn-left">Options</a>
-  </div> -->
      <div class="headerMenu">
      <nd2-include data-src="panel.left.html"></nd2-include>
       <div data-role="header">
@@ -89,7 +85,6 @@
       <div data-role="header">
         <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
-        <!-- <a href="#" class="ui-btn ui-btn-rigt wow fadeIn" data-wow-delay='1.2s'><i class="zmdi"></i></a> -->
       </div>
   <div role="main" class="content" id = "listBuilding">
 <!--     <div id = "listBuilding">
@@ -144,18 +139,6 @@
       hideMyPosition();
       window.location="#homePage";
     }
-
-    // Raphael antiga funcao
-
-    // function renderBuildingPage(buildingId){
-    //   hideMyPosition();
-    //   currentBuildingId = buildingId;
-    //   // render content
-    //   var result = buildings.building[buildingId].description;
-    //   document.getElementById('buildingDescription').innerHTML = result;
-    //   window.location="#buildingPage";
-
-    // }
 
     function renderBuildingPage(buildingId){
       hideMyPosition();
