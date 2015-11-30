@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TDT</title>
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+  <script type="text/javascript" src="json/buildings.json"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <!--  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script> -->
+  <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="css/jquery.bxslider.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/waves.min.css" />
+  <link rel="stylesheet" href="css/nativedroid2.css" />
+  <script src="js/nativedroid2.js"></script>
+  <script src="js/nd2settings.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  
+
+
+
+<script type='text/javascript'>
+  // 999 indica q nenhum popup teve que ser aberto
+  var currentBuildingId = 999;
+  var myPosition=[0,0];
+  var markerMyPosition;
+  var markers = [];
+  var map;
+</script>
+  <script src="js/init.js"></script> 
+  <script src="js/jqm.leaflet.js"></script>
+  <style>
+
+  html, body, #homePage {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+  }
+
+    .map{
+      width:350px;
+      height:600px;
+      margin:0 auto;
+    }
+
+  </style>
+</head>
+<body>
+<div data-role="page" id="homePage">
+
+<!--   <div data-role="header">
+    <h1>TDT</h1>
+    <a href="#bars" data-icon="gear" class="ui-btn-left">Options</a>
+  </div> -->
+     <div class="headerMenu">
+     <nd2-include data-src="panel.left.html"></nd2-include>
+      <div data-role="header">
+        <a href="#leftpanel" class="ui-btn ui-btn-left"><i class="fa fa-bars"></i></a>
+        <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
+        <a href="#" class="ui-btn ui-btn-rigt wow fadeIn" data-wow-delay='1.2s'><i class="zmdi"></i></a>
+      </div>
+    </div>
+
+
+  <div data-role="content" class="map"  id="map1_1" >
+  </div><!-- /content -->
+
+  <div data-role="panel" data-display="overlay" id="bars" >
+    <ul data-role="listview">
+        <li> <a href = "#pageListBuilding">List of Buildings</a></li>
+        <li> <a  id = "getLocation" >Where am I?</a></li>
+    </ul>
+      
+  </div><!-- /panel -->
+
+
+</div>
+
+<div data-role="page" id="pageListBuilding">
+      <div data-role="header">
+        <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
+        <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
+        <!-- <a href="#" class="ui-btn ui-btn-rigt wow fadeIn" data-wow-delay='1.2s'><i class="zmdi"></i></a> -->
+      </div>
+  <div role="main" class="content" id = "listBuilding">
+<!--     <div id = "listBuilding">
+    </div>
+     -->
+  </div><!-- /content -->
+  <div data-role="footer" data-position="fixed"> 
+  </div><!-- /footer -->
+</div><!-- /page2 -->
+
+<!-- <div data-role="page" id="buildingPage">
+
+  <div data-role="header">
+  </div>
+  <div role="main" class="content">
+    <div id = "buildingDescription"></div>
+  </div>
+  <div data-role="footer" data-position="fixed" > 
+      <div data-role="navbar" data-iconpos="left">
+        <ul>
+          <li><a data-rel="back" data-icon="back" >Return</a></li>
+          <li><a onClick = "showBuilding()" data-icon="location">Find</a></li>
+        </ul>
+      </div>
+  </div>
+</div> -->
+<!-- /page3 -->
+
+
+      <script type='text/javascript'>
+
+
+
+
+      function createListBuilding(buildingsJson) {
+
+      var result = "";
+      result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+      for(var i=0; i<buildingsJson.length; i++) {
+        result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
+        result += "</a></li>";
+      }
+  
+      result +="</ul>"
+
+      return result;
+  }
+    var total = createListBuilding(buildings.building);
+    document.getElementById('listBuilding').innerHTML = total;
+
+    function showBuilding(){
+      hideMyPosition();
+      window.location="#homePage";
+    }
+
+    // Raphael antiga funcao
+
+    // function renderBuildingPage(buildingId){
+    //   hideMyPosition();
+    //   currentBuildingId = buildingId;
+    //   // render content
+    //   var result = buildings.building[buildingId].description;
+    //   document.getElementById('buildingDescription').innerHTML = result;
+    //   window.location="#buildingPage";
+
+    // }
+
+    function renderBuildingPage(buildingId){
+      hideMyPosition();
+      currentBuildingId = buildingId;
+      $(":mobile-pagecontainer").pagecontainer("change", "buildings.html", {
+        changeHash: true
+      });
+    }
+    $(document).on("pageshow", "#buildings", function( event ) {
+      var slider = $('.bxslider').bxSlider({
+          auto: true,
+          autoControls: true
+      });
+        
+      $("#buildingName").html(buildings.building[currentBuildingId].name);
+      $("#bximages").html("");
+      $("#bximages").html("<li><img src="+ buildings.building[currentBuildingId].img + "></li><li><img src="+ buildings.building[currentBuildingId].img + "></li>");
+      slider.reloadSlider();
+      $("#buildingDescription").html(buildings.building[currentBuildingId].description);
+
+    });
+
+
+
+    function hideMyPosition(){
+      myPosition=[0,0];
+      markerMyPosition.setOpacity(0);
+    }
+    function setCurrentBuilding(id_building){
+      currentBuildingId = id_building;
+    }
+    function resetCurrentBuilding(){
+      currentBuildingId = 999;
+    }
+
+
+
+      </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/plugin.js"></script>
+</body>
+</html>
