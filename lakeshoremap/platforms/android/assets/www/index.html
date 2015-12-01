@@ -57,10 +57,6 @@
 <body>
 <div data-role="page" id="homePage">
 
-<!--   <div data-role="header">
-    <h1>TDT</h1>
-    <a href="#bars" data-icon="gear" class="ui-btn-left">Options</a>
-  </div> -->
      <div class="headerMenu">
      <nd2-include data-src="panel.left.html"></nd2-include>
       <div data-role="header">
@@ -89,9 +85,23 @@
       <div data-role="header">
         <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
-        <!-- <a href="#" class="ui-btn ui-btn-rigt wow fadeIn" data-wow-delay='1.2s'><i class="zmdi"></i></a> -->
       </div>
   <div role="main" class="content" id = "listBuilding">
+<!--     <div id = "listBuilding">
+    </div>
+     -->
+  </div><!-- /content -->
+  <div data-role="footer" data-position="fixed"> 
+  </div><!-- /footer -->
+</div><!-- /page2 -->
+
+<div data-role="page" id="pageFavBuildings">
+      <div data-role="header">
+        <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
+        <a data-rel="back" onClick = "saveBuilding(1)" class="ui-btn ui-btn-right"><i class="fa fa-arrow-left"></i></a>
+        <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
+      </div>
+  <div role="main" class="content" id = "listFavBuilding">
 <!--     <div id = "listBuilding">
     </div>
      -->
@@ -126,17 +136,25 @@
 
       function createListBuilding(buildingsJson) {
 
-      var result = "";
-      result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
-      for(var i=0; i<buildingsJson.length; i++) {
-        result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
-        result += "</a></li>";
-      }
-  
-      result +="</ul>"
+        var ordenationAux = [];
+        for(var i=0; i<buildingsJson.length; i++) {
+          ordenationAux.push([buildingsJson[i].name, buildingsJson[i].id])
+        }
+        ordenationAux.sort(sortFunction);
 
-      return result;
-  }
+
+        var result = "";
+        result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+        for(var i=0; i<buildingsJson.length; i++) {
+          // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
+          result += "<li><a onClick = 'renderBuildingPage("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+          result += "</a></li>";
+        }
+  
+        result +="</ul>"
+
+        return result;
+      }
     var total = createListBuilding(buildings.building);
     document.getElementById('listBuilding').innerHTML = total;
 
@@ -144,18 +162,6 @@
       hideMyPosition();
       window.location="#homePage";
     }
-
-    // Raphael antiga funcao
-
-    // function renderBuildingPage(buildingId){
-    //   hideMyPosition();
-    //   currentBuildingId = buildingId;
-    //   // render content
-    //   var result = buildings.building[buildingId].description;
-    //   document.getElementById('buildingDescription').innerHTML = result;
-    //   window.location="#buildingPage";
-
-    // }
 
     function renderBuildingPage(buildingId){
       hideMyPosition();
@@ -180,6 +186,12 @@
 
 
 
+    $(document).on("pageshow", "#pageFavBuildings", function( event ) {
+      renderFavoriteBuildingPage();
+    });
+
+
+
     function hideMyPosition(){
       myPosition=[0,0];
       markerMyPosition.setOpacity(0);
@@ -189,6 +201,46 @@
     }
     function resetCurrentBuilding(){
       currentBuildingId = 999;
+    }
+
+
+    function sortFunction(a, b) {
+      if (a[0] === b[0]) {
+        return 0;
+      }
+      else {
+        return (a[0] < b[0]) ? -1 : 1;
+      }
+    }
+
+
+
+    function saveBuilding(id) {
+      if (id != null) {
+        window.localStorage.setItem(id, buildings.building[id].name);
+      }
+    }
+
+    function getAllSavedBuildings() {
+      if (window.localStorage.length == 0) {
+        return 0;
+      }
+      var result = [];
+      for(var i=0; i<window.localStorage.length; i++) {
+          result.push(window.localStorage.key(i))
+      }
+      return result;
+    }
+
+
+    function renderFavoriteBuildingPage(){
+      var favBuildings = getAllSavedBuildings();
+      if(favBuildings == 0){
+        $("#listFavBuilding").html("No building added...");
+      } else{
+        $("#listFavBuilding").html(favBuildings);
+      }
+
     }
 
 

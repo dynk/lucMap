@@ -372,7 +372,7 @@ var buildings = {
     },
     {
       "id": "35",
-      "name": "de Nobili Hall",
+      "name": "De Nobili Hall",
       "address": "6350 N. Kenmore Ave.",
       "description": "Opened in Fall 2013, de Nobili is home to 200 first year students living on four floors.  This residence hall features a two-story entertainment lounge, four study lounges, and two community kitchens with a full size refrigerator, stove top and oven. The dining hall is located on the ground level and offers a late night dining option for all residents. Laundry facilities are available in the building. de Nobili creates a strong sense of community among the first year students who live there due to the large lounge spaces and presence of Learning Communities in the building. Popular resident activities in de Nobili Hall are the Halloween Carnival and trips to Cubs games.",
       "img": "img/35.1.jpg",
