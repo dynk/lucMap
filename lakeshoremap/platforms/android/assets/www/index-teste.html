@@ -1,61 +1,135 @@
 <!DOCTYPE html>
 <html>
-    <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
-  <link rel="stylesheet" href="css/leaflet.css" />
-  <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 
+<head>
+    <title>JQM Swipe Delete</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+    <style>
+    .behind {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .behind a.ui-btn {
+        width: 68px;
+        margin: 0px;
+        float: right;
+        border: none;
+    }
+    .behind a.delete-btn, .behind a.delete-btn:active, .behind a.delete-btn:visited, .behind a.delete-btn:focus, .behind a.delete-btn:hover {
+        color: white;
+        background-color: red;
+        text-shadow: none;
+    }
+    .behind a.ui-btn.pull-left {
+        float: left;
+    }
+    .behind a.edit-btn, .behind a.edit-btn:active, .behind a.edit-btn:visited, .behind a.edit-btn:focus, .behind a.edit-btn:hover {
+        color: white;
+        background-color: orange;
+        text-shadow: none;
+    }
+    </style>
+</head>
 
+<body>
+    <div id="container">
+        <div data-role="page">
+            <div data-role="header" data-position="fixed">
+                <h1>Swipe Delete</h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" class="swipe-delete">
+                    <li>
+                        <div class="behind">
+                            <a href="#" class="ui-btn delete-btn">Delete</a>
+                            <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                        </div>
+                        <a href="#">item 1</a>
+                    </li>
+                    <li>
+                        <div class="behind">
+                            <a href="#" class="ui-btn delete-btn">Delete</a>
+                            <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                        </div>
+                        <a href="#">item 2</a>
+                    </li>
+                    <li>
+                        <div class="behind">
+                            <a href="#" class="ui-btn delete-btn">Delete</a>
+                            <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                        </div>
+                        <a href="#">item 3</a>
+                    </li>
+                    <li>
+                        <div class="behind">
+                            <a href="#" class="ui-btn delete-btn">Delete</a>
+                            <a href="#" class="ui-btn edit-btn pull-left">Edit</a>
+                        </div>
+                        <a href="#">item 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
 
-  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-  <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-  <script type="text/javascript" src="json/buildings.json"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-        <title>Plugin Test3</title>
-    </head>
-    <body>
-  <!-- homepage -->
-	<div data-role="page" id="homePage">
-		<div data-role="header">
-	    <h3>plugin tester</h3>
-		</div><!-- /header -->
-	  <div role="main" class="ui-content">
-      <!-- container for plugin options... -->
-      <div data-role="content">
-        <ul data-role="listview" data-inset="true">
-				  <li data-role="list-divider" role="heading">plugin tests</li>
-				  <li><a href="#location" data-transition="slide">geolocation</a></li>
-        </ul>
-      </div><!-- /content -->
-		</div><!-- /main -->
-	</div><!-- /homepage -->
+<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    function prevent_default(e) {
+        e.preventDefault();
+    }
+    function disable_scroll() {
+        $(document).on('touchmove', prevent_default);
+    }
+    function enable_scroll() {
+        $(document).unbind('touchmove', prevent_default)
+    }
+    var x;
+    $('.swipe-delete li > a')
+        .on('touchstart', function(e) {
+            console.log(e.originalEvent.pageX)
+            $('.swipe-delete li > a.open').css('left', '0px').removeClass('open') // close em all
+            $(e.currentTarget).addClass('open')
+            x = e.originalEvent.targetTouches[0].pageX // anchor point
+        })
+        .on('touchmove', function(e) {
+            var change = e.originalEvent.targetTouches[0].pageX - x
+            change = Math.min(Math.max(-100, change), 100) // restrict to -100px left, 0px right
+            e.currentTarget.style.left = change + 'px'
+            if (change < -10) disable_scroll() // disable scroll once we hit 10px horizontal slide
+        })
+        .on('touchend', function(e) {
+            var left = parseInt(e.currentTarget.style.left)
+            var new_left;
+            if (left < -35) {
+                // new_left = '-100px'
+            } else if (left > 35) {
+                new_left = '100px'
+            } else {
+                new_left = '0px'
+            }
+            // e.currentTarget.style.left = new_left
+            $(e.currentTarget).animate({left: new_left}, 200)
+            enable_scroll()
+        });
+    $('li .delete-btn').on('touchend', function(e) {
+        e.preventDefault()
+        $(this).parents('li').slideUp('fast', function() {
+            $(this).remove()
+        })
+    })
+    $('li .edit-btn').on('touchend', function(e) {
+        e.preventDefault()
+        $(this).parents('li').children('a').html('edited')
+    })
+});
+</script>
 
-  <!-- location page -->
-  <div data-role="page" id="location">
-    <div data-role="header">
-	    <h3>plugin tester - geolocation</h3>
-		</div><!-- /header -->
-    <div data-role="navbar" data-iconpos="left">
-      <ul>
-        <li><a class="ui-btn" data-icon="home" data-transition="slide" href="#home">home</a></li>
-        <li><a class="ui-btn" data-icon="arrow-l" data-rel="back">back</a></li>
-      </ul>
-    </div><!-- /navbar -->
-    <div data-role="content">
-      <p>Click the following button to find your current location...</p>
-      <input type="button" id="getLocation" data-icon="search" value="Find Current Location" />
-      <div id="location">
-        <h5>Location Results</h5>
-      </div>
-    </div><!-- /content -->
-  </div><!-- /location page -->
-
-<script type="text/javascript" src="cordova.js"></script>
-
-<script type="text/javascript" src="js/plugin.js"></script>
-    </body>
 </html>

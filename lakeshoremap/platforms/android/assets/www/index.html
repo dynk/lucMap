@@ -35,6 +35,7 @@
   var markerMyPosition;
   var markers = [];
   var map;
+  var favBuildingFlag = false;
 </script>
   <script src="js/init.js"></script> 
   <script src="js/jqm.leaflet.js"></script>
@@ -95,20 +96,45 @@
   </div><!-- /footer -->
 </div><!-- /page2 -->
 
-<div data-role="page" id="pageFavBuildings">
+<div data-role="page" id="pageFavAllBuildings">
       <div data-role="header">
-        <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
-        <a data-rel="back" onClick = "saveBuilding(1)" class="ui-btn ui-btn-right"><i class="fa fa-arrow-left"></i></a>
+        <!-- <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a> -->
+        <a href = "#pageFavBuildings" onClick = "renderFavPage()" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
       </div>
-  <div role="main" class="content" id = "listFavBuilding">
+  <div role="main" class="content" id = "listAllFavBuilding">
 <!--     <div id = "listBuilding">
     </div>
      -->
   </div><!-- /content -->
   <div data-role="footer" data-position="fixed"> 
   </div><!-- /footer -->
-</div><!-- /page2 -->
+</div>
+
+
+
+<!-- <iframe src="pageFavBuildings.html"></iframe> -->
+
+<div data-role="page" id="pageFavBuildings">
+      <div data-role="header">
+        <a href = "#homePage" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
+        <a href = "#pageFavAllBuildings" class="ui-btn ui-btn-right"><i class="fa fa-plus"></i></a>
+        <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
+      </div>
+  <div role="main" class="content" id = "listFavBuilding">
+    <ul id='listViewFavBuilding' data-role= 'listview'>
+    </u1>
+
+  </div>
+  <div data-role="footer" data-position="fixed"> 
+    <div data-role="navbar">
+    <ul>
+      <li><a  href="#" data-role="button" data-icon="delete" data-iconpos="right" onClick = "deleteAllFavBuilding()">Delete All</a></li>
+    </ul>
+  </div>
+
+  </div>
+</div>
 
 <!-- <div data-role="page" id="buildingPage">
 
@@ -134,29 +160,75 @@
 
 
 
-      function createListBuilding(buildingsJson) {
+      function createListBuilding(buildingsJson,opCode) {
 
-        var ordenationAux = [];
-        for(var i=0; i<buildingsJson.length; i++) {
-          ordenationAux.push([buildingsJson[i].name, buildingsJson[i].id])
+        switch(opCode) {
+          case 1:
+            var ordenationAux = sortListFunction(buildingsJson);
+            var result = "";
+            result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+            for(var i=0; i<buildingsJson.length; i++) {
+              // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
+              result += "<li><a onClick = 'renderBuildingPage("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+              result += "</a></li>";
+            }
+            result +="</ul>";
+            break;
+          case 2:
+            var ordenationAux = sortListFunction(buildingsJson);
+            var result = "";
+            result += "<ul id='searchBar2' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+            for(var i=0; i<buildingsJson.length; i++) {
+              // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
+              result += "<li><a href = '#pageFavBuildings' onClick = 'saveBuilding("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+              result += "</a></li>";
+            }
+            result +="</ul>";
+            break;
+          case 3:
+
+            var result = "";
+            // result += "<ul id='listViewFavBuilding' data-role= 'listview'> ";
+            for(var i=0; i<buildingsJson.length; i++) {
+
+              result += "<li><a onClick = 'renderBuildingPage("+buildingsJson[i][0]+")'>"+ buildingsJson[i][1];
+              result += "</a></li>";
+
+
+              // result += "<li data-role='collapsible' data-iconpos='right' data-shadow='false' data-corners='false'>";
+              // result += "<h2>"+ buildingsJson[i][1]+"</h2>";
+              // result += "<ul data-role='listview' data-shadow='false' data-inset='true' data-corners='false'>";
+              // result += "<li><a onClick = 'renderBuildingPage("+buildingsJson[i][0]+")'>"+ "Details</a></li>";
+              // result += "<li><a>Delete</a></li>";
+              // result += "</ul>";
+              // result += "</li>";
+
+
+
+
+            }
+            // result +="</ul>";
+            break;
+
+          default:
+            break;
         }
-        ordenationAux.sort(sortFunction);
 
 
-        var result = "";
-        result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
-        for(var i=0; i<buildingsJson.length; i++) {
-          // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
-          result += "<li><a onClick = 'renderBuildingPage("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
-          result += "</a></li>";
-        }
-  
-        result +="</ul>"
 
         return result;
       }
-    var total = createListBuilding(buildings.building);
+
+
+
+
+
+    var total = createListBuilding(buildings.building,1);
     document.getElementById('listBuilding').innerHTML = total;
+    var total2 = createListBuilding(buildings.building,2);
+    document.getElementById('listAllFavBuilding').innerHTML = total2;
+
+
 
     function showBuilding(){
       hideMyPosition();
@@ -175,20 +247,19 @@
           auto: true,
           autoControls: true
       });
-        
+      var fillss = fillFooterBuilding();
+
       $("#buildingName").html(buildings.building[currentBuildingId].name);
       $("#bximages").html("");
       $("#bximages").html("<li><img src="+ buildings.building[currentBuildingId].img + "></li><li><img src="+ buildings.building[currentBuildingId].img + "></li>");
       slider.reloadSlider();
       $("#buildingDescription").html(buildings.building[currentBuildingId].description);
+      $("#deleteFavoriteBuilding").html(fillss);
+
+
 
     });
 
-
-
-    $(document).on("pageshow", "#pageFavBuildings", function( event ) {
-      renderFavoriteBuildingPage();
-    });
 
 
 
@@ -213,12 +284,22 @@
       }
     }
 
-
+    function sortListFunction(buildingsJson){
+      var ordenationAux = [];
+        for(var i=0; i<buildingsJson.length; i++) {
+          ordenationAux.push([buildingsJson[i].name, buildingsJson[i].id])
+        }
+        return ordenationAux.sort(sortFunction);
+    }
 
     function saveBuilding(id) {
       if (id != null) {
         window.localStorage.setItem(id, buildings.building[id].name);
       }
+      renderFavPage();
+
+      // window.location="#pageFavBuildings";
+
     }
 
     function getAllSavedBuildings() {
@@ -233,13 +314,49 @@
     }
 
 
-    function renderFavoriteBuildingPage(){
+
+    function renderFavPage(){
+      favBuildingFlag = true;
+
       var favBuildings = getAllSavedBuildings();
       if(favBuildings == 0){
-        $("#listFavBuilding").html("No building added...");
+        $("#listViewFavBuilding").html("No building added...");
       } else{
-        $("#listFavBuilding").html(favBuildings);
+        var aux = [];
+
+        for(var key in localStorage) {
+          aux.push([key , localStorage.getItem(key)]);
+        }
+
+
+        var result = createListBuilding(aux,3);
+
+        $("#listViewFavBuilding").html(result);
+        $("#listViewFavBuilding").listview().listview('refresh');
+        // return result;
+        // window.location = pageFavBuildings2;
+
+        
       }
+
+    }
+
+
+    function deleteAllFavBuilding(){
+      localStorage.clear();
+      renderFavPage();
+    }
+
+    function fillFooterBuilding(){
+      var footerBuilding = "";
+      if (favBuildingFlag){
+        footerBuilding += "<div data-role= 'navbar' id = 'nav' data-iconpos='left'>";
+        footerBuilding += '<ul>';
+        footerBuilding += ' <li><a>Delete</a></li>';
+        footerBuilding += '</ul>';   
+        footerBuilding += "</div>";           
+      }
+      return footerBuilding;
 
     }
 

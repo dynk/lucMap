@@ -127,6 +127,12 @@
 
   </div>
   <div data-role="footer" data-position="fixed"> 
+    <div data-role="navbar">
+    <ul>
+      <li><a  href="#" data-role="button" data-icon="delete" data-iconpos="right" onClick = "deleteAllFavBuilding()">Delete All</a></li>
+    </ul>
+  </div>
+
   </div>
 </div>
 
@@ -184,9 +190,22 @@
             var result = "";
             // result += "<ul id='listViewFavBuilding' data-role= 'listview'> ";
             for(var i=0; i<buildingsJson.length; i++) {
-              // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
+
               result += "<li><a onClick = 'renderBuildingPage("+buildingsJson[i][0]+")'>"+ buildingsJson[i][1];
               result += "</a></li>";
+
+
+              // result += "<li data-role='collapsible' data-iconpos='right' data-shadow='false' data-corners='false'>";
+              // result += "<h2>"+ buildingsJson[i][1]+"</h2>";
+              // result += "<ul data-role='listview' data-shadow='false' data-inset='true' data-corners='false'>";
+              // result += "<li><a onClick = 'renderBuildingPage("+buildingsJson[i][0]+")'>"+ "Details</a></li>";
+              // result += "<li><a>Delete</a></li>";
+              // result += "</ul>";
+              // result += "</li>";
+
+
+
+
             }
             // result +="</ul>";
             break;
@@ -199,6 +218,9 @@
 
         return result;
       }
+
+
+
 
 
     var total = createListBuilding(buildings.building,1);
@@ -225,24 +247,19 @@
           auto: true,
           autoControls: true
       });
+      var fillss = fillFooterBuilding();
 
       $("#buildingName").html(buildings.building[currentBuildingId].name);
       $("#bximages").html("");
       $("#bximages").html("<li><img src="+ buildings.building[currentBuildingId].img + "></li><li><img src="+ buildings.building[currentBuildingId].img + "></li>");
       slider.reloadSlider();
       $("#buildingDescription").html(buildings.building[currentBuildingId].description);
+      $("#deleteFavoriteBuilding").html(fillss);
 
 
 
     });
 
-
-
-    // $(document).on("pageshow", "#pageFavBuildings2", function( event ) {
-    //   var total = renderFavPage();
-    //   $("#listFavBuilding2").html(total);
-    //   $("#listFavBuilding2").listview().listview('refresh');
-    // });
 
 
 
@@ -311,6 +328,7 @@
           aux.push([key , localStorage.getItem(key)]);
         }
 
+
         var result = createListBuilding(aux,3);
 
         $("#listViewFavBuilding").html(result);
@@ -322,12 +340,19 @@
       }
 
     }
+
+
+    function deleteAllFavBuilding(){
+      localStorage.clear();
+      renderFavPage();
+    }
+
     function fillFooterBuilding(){
       var footerBuilding = "";
       if (favBuildingFlag){
         footerBuilding += "<div data-role= 'navbar' id = 'nav' data-iconpos='left'>";
         footerBuilding += '<ul>';
-        footerBuilding += ' <li><a >Delete</a></li>';
+        footerBuilding += ' <li><a>Delete</a></li>';
         footerBuilding += '</ul>';   
         footerBuilding += "</div>";           
       }
