@@ -29,6 +29,10 @@
 
 
 <script type='text/javascript'>
+  // var mapWidth = 1420,
+  //   mapHeight = 2048;
+  var mapWidth = 1350;
+  var mapHeight = 2144;
   // 999 indica q nenhum popup teve que ser aberto
   var currentBuildingId = 999;
   var myPosition=[0,0];
@@ -36,6 +40,87 @@
   var markers = [];
   var map;
   var favBuildingFlag = false;
+  // var x1_pixel = 202,
+  //     y1_pixel = 203,
+  //     x2_pixel = 1027,
+  //     y2_pixel = 2007,
+  //     x1_leaf = 81,
+  //     y1_leaf = -144,
+  //     x2_leaf = -82,
+  //     y2_leaf = 2;
+  // var x1_pixel = 300,
+  //     y1_pixel = 1700,
+  //     x2_pixel = 1024,
+  //     y2_pixel = 1077,
+  //     x1_leaf = -139.61432506887053,
+  //     y1_leaf = 90.98807495741056,
+  //     x2_leaf = 0,
+  //     y2_leaf = 0,
+  //     alphaLat = 70,
+  //     alphaLong = 70;  
+    // var x1_pixel = 661,
+    //   y1_pixel = 1664,
+    //   x2_pixel = 1024,
+    //   y2_pixel = 1077,
+    //   x1_leaf = -70,
+    //   y1_leaf = -70,
+    //   x2_leaf = 0,
+    //   y2_leaf = 0;  
+
+
+
+    var x1_pixel = 165,
+      y1_pixel = 2003,
+      x2_pixel = 1208,
+      y2_pixel = 123,
+      lat1_leaf = -250,
+      long1_leaf = 20,
+      lat2_leaf = -15,
+      long2_leaf = 150;  
+
+  var alpha_x = (long2_leaf-long1_leaf)/(x2_pixel-x1_pixel);
+  var alpha_y = (lat2_leaf-lat1_leaf)/(y2_pixel-y1_pixel);
+  function pixel2leaflet(x,y){
+    // var alpha_x = (x1_leaf-x2_leaf)/(x1_pixel-x2_pixel);
+    // var alpha_y = (y1_leaf-y2_leaf)/(y1_pixel-y2_pixel);
+    // return [alpha_x*(x1_pixel-x),alpha_y*(y1_pixel-y)]
+    // y -> latitude x->longitude
+
+    // return [-(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
+    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
+    var offsetLat = 0;
+    return [(alpha_y*(y-y1_pixel)+lat1_leaf),(alpha_x*(x-x1_pixel)+long1_leaf)]
+    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
+    // return [lat,lng]
+  }
+  function coord2leaflet(x,y){
+    var lat1_google = 41.994599,
+        long1_google = -87.660353,
+        lat2_google = 42.001569,
+        long2_google = -87.658586,
+        lat1_leaf2 = -251,
+        long1_leaf2 = 28,
+        lat2_leaf2 = -55,
+        long2_leaf2 = 68;
+
+  var alpha_long_google = (long2_leaf2-long1_leaf2)/(long2_google-long1_google);
+  var alpha_lat_google = (lat2_leaf2-lat1_leaf2)/(lat2_google-lat1_google);
+
+
+    
+    // var alpha_x = (x1_leaf-x2_leaf)/(x1_pixel-x2_pixel);
+    // var alpha_y = (y1_leaf-y2_leaf)/(y1_pixel-y2_pixel);
+    // return [alpha_x*(x1_pixel-x),alpha_y*(y1_pixel-y)]
+    // y -> latitude x->longitude
+
+    // return [-(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
+    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
+    var offsetLat = 0;
+    return [(alpha_lat_google*(x-lat1_google)+lat1_leaf2 ),(alpha_long_google*(y-long1_google)+long1_leaf2 )]
+    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
+    // return [lat,lng]
+  }
+  var teste = pixel2leaflet(300,1700);
 </script>
   <script src="js/init.js"></script> 
   <script src="js/jqm.leaflet.js"></script>
@@ -251,7 +336,11 @@
 
       $("#buildingName").html(buildings.building[currentBuildingId].name);
       $("#bximages").html("");
-      $("#bximages").html("<li><img src="+ buildings.building[currentBuildingId].img + "></li><li><img src="+ buildings.building[currentBuildingId].img + "></li>");
+      // $("#bximages").html("<li><img src="+ buildings.building[currentBuildingId].img + "></li><li><img src="+ buildings.building[currentBuildingId].img + "></li>");
+      for (j in buildings.building[currentBuildingId].img){
+        $("#bximages").append("<li><img src="+ buildings.building[currentBuildingId].img[j].url + "></li>");
+      }
+
       slider.reloadSlider();
       $("#buildingDescription").html(buildings.building[currentBuildingId].description);
       $("#deleteFavoriteBuilding").html(fillss);

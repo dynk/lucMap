@@ -14,9 +14,9 @@
 				myPosition[1] = location.coords.longitude;
 
 				// testing
-				myPosition[0] = 20;
-				myPosition[1] = 10;
-				markerMyPosition.setLatLng(myPosition).update();
+				var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
+
+				markerMyPosition.setLatLng(myFinalPosition).update();
       			markerMyPosition.setOpacity(1);
       			markerMyPosition.openPopup();
       			// $( "#bars" ).panel( "close" );
