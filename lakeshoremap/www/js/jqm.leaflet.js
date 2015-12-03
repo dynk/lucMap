@@ -137,6 +137,7 @@
   				// markers[i].bindPopup(buildings.building[i].name);
   				markers[i].addTo(self.map.map);
   			}
+  			markers[0].setOpacity(0);
 
 
   			var locationIcon = L.icon({
