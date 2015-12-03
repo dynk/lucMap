@@ -2,12 +2,12 @@ var buildings = {
         "building": [
     {
       "id": "0",
-      "name": "Bellarmine Hall",
+      "name": "W Road",
       "address": "6628 N. Sheridan Rd.",
       "description": "Bellarmine Hall serves as an apartment-style facility housing upper-class students.  The population consists of primarily sophomore and transfer students though there are also junior and senior level students who call it home.  The resident capacity for Bellarmine is approximately 300 students. Bellarmine is located on the north end of campus. All floors have student lounges. There is gated parking available to students who reside in any on campus residence hall and who register with Campus Transportation. Kitchens in Bellarmine apartments include a full refrigerator, stovetop and oven.",
       "img": [{"url": "img/1.1.jpg"}],
-      "lat": 10,
-      "longi": 40,
+      "lat": 0,
+      "longi": 0,
       "ymax": "",
       "ymin": ""
     },
@@ -61,8 +61,8 @@ var buildings = {
       "address": "1052 W. Loyola Ave.",
       "description": "Loyola University Preschool opened in August of 1994 and is located in the garden level and first floor of the Doyle Center. It features classrooms specially designed for young children, an indoor gross-motor room, a kitchen, an enclosed outdoor play area, and convenient drop-off parking. In addition, the preschool has access to the “green spaces” and gymnasiums of Loyola University Chicago.",
       "img": [{"url": "img/5.1.jpg"}],
-      "lat": 50,
-      "longi": -90,
+      "lat": 661,
+      "longi": 377,
       "ymax": "",
       "ymin": ""
     },
@@ -72,8 +72,8 @@ var buildings = {
       "address": "1030 W. Loyola Ave.",
       "description": "",
       "img": [{"url": "img/6.1.jpg"}],
-      "lat": 60,
-      "longi": -90,
+      "lat": 754,
+      "longi": 392,
       "ymax": "",
       "ymin": ""
     },
@@ -83,8 +83,8 @@ var buildings = {
       "address": "1000 W. Loyola Ave.",
       "description": "Santa Clara Hall is an apartment-style facility housing upper-class students.  The population consists of primarily junior and senior level students.  Santa Clara was rehabbed and re-opened in 2008. The facility is comprised of apartment-style two bedroom quad rooms, including full kitchens (refrigerator, stovetop, oven, and microwave) and two full bathrooms. There are a limited number of two bedroom/two bathroom doubles available. Laundry facilities are located on the first floor. Santa Clara is the closest residential facility in proximity to the lake in the city of Chicago.",
       "img": [{"url": "img/7.1.jpg"}],
-      "lat": 10,
-      "longi": -80,
+      "lat": 886,
+      "longi": 392,
       "ymax": "",
       "ymin": ""
     },
@@ -96,8 +96,8 @@ var buildings = {
       "img": [
         {"url": "img/8.1.jpg"},
         {"url": "img/8.2.jpg"}],
-      "lat": 10,
-      "longi": -70,
+      "lat": 270,
+      "longi": 507,
       "ymax": "",
       "ymin": ""
     },
@@ -107,8 +107,8 @@ var buildings = {
       "address": "1125 W. Loyola Ave.",
       "description": "Mertz Hall is the largest building on the Lakeshore Campus and the largest residence hall, housing approximately 650 first-year students.  The building is connected to Centennial Forum (CF) and stands 19 stories tall – Floors 3-19 are residential floors; Floor 2 is the lounge, common kitchen, common laundry facility, and office space; Floor 1 is Centennial Forum only.  Mertz is a traditional style residence hall comprised of mostly doubles, some singles, and a few quads.  Each floor has 4 community-style bathrooms and 2 community lounge spaces, located in the hallway. All community bathrooms were completely renovated in 2010 and 2011, new doors were installed throughout the building in 2010, and all residential floors were repainted and had new carpet installed in 2013. In the summer of 2014 the carpet in the second floor lounge and elevator lobby was replaced with hardwood floors and a full common kitchen was created and accessible to all of Mertz Hall residents. The layout of the building allows students to create and unforgettable experience unlike any other experience on campus. A few traditional programs are Mertz Til It Hurts Stair-a-thon, First day of School Photo Booth, End of the Year Block Party and various viewing parties in the building lounge located on the second floor, including sporting events and awards shows.",
       "img": [{"url": "img/9.1.jpg"}],
-      "lat": 25,
-      "longi": -90,
+      "lat": 380,
+      "longi": 507,
       "ymax": "",
       "ymin": ""
     },
@@ -120,8 +120,8 @@ var buildings = {
       "img": [
         {"url": "img/10.1.jpg"},
         {"url": "img/10.2.jpg"}],
-      "lat": 35,
-      "longi": -90,
+      "lat": 900,
+      "longi": 507,
       "ymax": "",
       "ymin": ""
     },
@@ -136,8 +136,8 @@ var buildings = {
         {"url": "img/11.3.jpg"},
         {"url": "img/11.4.jpg"},
         {"url": "img/11.5.jpg"}],
-      "lat": 45,
-      "longi": -90,
+      "lat": 330,
+      "longi": 700,
       "ymax": "",
       "ymin": ""
     },
@@ -150,8 +150,8 @@ var buildings = {
         {"url": "img/12.1.jpg"},
         {"url": "img/12.2.jpg"},
         {"url": "img/12.3.jpg"}],
-      "lat": 55,
-      "longi": -90,
+      "lat": 455,
+      "longi": 655,
       "ymax": "",
       "ymin": ""
     },
@@ -164,8 +164,8 @@ var buildings = {
         {"url": "img/13.1.jpg"},
         {"url": "img/13.2.jpg"},
         {"url": "img/13.3.jpg"}],
-      "lat": 65,
-      "longi": -90,
+      "lat": 542,
+      "longi": 664,
       "ymax": "",
       "ymin": ""
     },
@@ -177,8 +177,8 @@ var buildings = {
       "img": [
         {"url": "img/14.1.jpg"},
         {"url": "img/14.2.jpg"}],
-      "lat": 67,
-      "longi": -90,
+      "lat": 663,
+      "longi": 688,
       "ymax": "",
       "ymin": ""
     },
@@ -190,8 +190,8 @@ var buildings = {
       "img": [
         {"url": "img/15.1.jpg"},
         {"url": "img/15.2.jpg"}],
-      "lat": 45,
-      "longi": -40,
+      "lat": 840,
+      "longi": 610,
       "ymax": "",
       "ymin": ""
     },
@@ -203,8 +203,8 @@ var buildings = {
       "img": [
         {"url": "img/16.1.jpg"},
         {"url": "img/16.2.jpg"}],
-      "lat": 50,
-      "longi": -60,
+      "lat": 956,
+      "longi": 775,
       "ymax": "",
       "ymin": ""
     },
@@ -216,8 +216,8 @@ var buildings = {
       "img": [
         {"url": "img/17.1.jpg"},
         {"url": "img/17.2.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 961,
+      "longi": 905,
       "ymax": "",
       "ymin": ""
     },
@@ -227,8 +227,8 @@ var buildings = {
       "address": "6460 N. Kenmore Ave.",
       "description": "Michael Cudahy Science hall, buit in 1911-1912, was the first building used for Loyola University classes.  The observatory was never used, however, for many years the basement housed a working seismograph station. The building underwent internal renovations in the late 1970s, but the exterior was not altered.",
       "img": [{"url": "img/18.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 695,
+      "longi": 846,
       "ymax": "",
       "ymin": ""
     },
@@ -241,8 +241,8 @@ var buildings = {
         {"url": "img/19.1.jpg"},
         {"url": "img/19.2.jpg"},
         {"url": "img/19.3.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 751,
+      "longi": 994,
       "ymax": "",
       "ymin": ""
     },
@@ -254,8 +254,8 @@ var buildings = {
       "img": [
         {"url": "img/20.1.jpg"},
         {"url": "img/20.2.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 422,
+      "longi": 888,
       "ymax": "",
       "ymin": ""
     },
@@ -265,8 +265,8 @@ var buildings = {
       "address": "6455 N. Sheridan Rd.",
       "description": "Fordham Hall serves as an apartment-style facility housing upper-class students. The resident capacity for Fordham is approximately 365 students. Fordham Hall is located on the site of the old Granada Theater, a once majestic movie palace serving the residents of Rogers Park.  The Granada Center is on floors 2-4 of the building which include the Wellness Center.",
       "img": [{"url": "img/21.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 244,
+      "longi": 917,
       "ymax": "",
       "ymin": ""
     },
@@ -276,8 +276,8 @@ var buildings = {
       "address": "6439 N. Sheridan Rd.",
       "description": "Completed in 1991, Granada Center hosts residential apartments, a parking garage, office space for Loyola University, and several store fronts.  The Center was built to help aid the growth and development of the Rogers Park neighborhood, as well as to provide more space for Loyola University.",
       "img": [{"url": "img/22.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 262,
+      "longi": 1009,
       "ymax": "",
       "ymin": ""
     },
@@ -290,8 +290,8 @@ var buildings = {
         {"url": "img/23.1.jpg"},
         {"url": "img/23.2.jpg"},
         {"url": "img/23.3.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 603,
+      "longi": 1124,
       "ymax": "",
       "ymin": ""
     },
@@ -301,8 +301,8 @@ var buildings = {
       "address": "1050 W. Sheridan Rd.",
       "description": "The Michael and Marilyn Quinlan Life Sciences Building is an education and major research facility for Loyola students. This modern building includes a classic auditorium for 199 guests and electronic meeting rooms.",
       "img": [{"url": "img/24.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 736,
+      "longi": 1124,
       "ymax": "",
       "ymin": ""
     },
@@ -312,8 +312,8 @@ var buildings = {
       "address": "1020 W. Sheridan Rd.",
       "description": "Formerly Mundelein College, the recently restored 80-year-old building is sometimes referred to as the ‘skyscraper building’ and is on the National Register of Historical places. Mundelein College was founded as an all-women's college in 1930 by the Sisters of the Charity of the Blessed Virgin Mary and 60 years later the college joined Loyola University Chicago. Mundelein was the first self-contained skyscraper college for women in the world and the last four-year women's college in Illinois at the time of its affiliation with Loyola. Within Mundelein Center is a large auditorium, atrium, theatres, and several classrooms.",
       "img": [{"url": "img/25.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 887,
+      "longi": 1102,
       "ymax": "",
       "ymin": ""
     },
@@ -326,8 +326,8 @@ var buildings = {
         {"url": "img/26.1.jpg"},
         {"url": "img/26.2.jpg"},
         {"url": "img/26.3.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 1080,
+      "longi": 1064,
       "ymax": "",
       "ymin": ""
     },
@@ -340,8 +340,8 @@ var buildings = {
         {"url": "img/27.1.jpg"},
         {"url": "img/27.2.jpg"},
         {"url": "img/27.3.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 1081,
+      "longi": 1126,
       "ymax": "",
       "ymin": ""
     },
@@ -351,8 +351,8 @@ var buildings = {
       "address": "6336 N. Hoyne Ave.",
       "description": "Hoyne Field is the home facility for the NCAA Men’s and Women’s Loyola Soccer teams as well as the NCAA Loyola Softball team.  The facility boasts a FieldTurf synthetic field and is located 1 mile west of campus on Devon Avenue and Hoyne Avenue.",
       "img": [{"url": "img/28.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 115,
+      "longi": 1283,
       "ymax": "",
       "ymin": ""
     },
@@ -364,8 +364,8 @@ var buildings = {
       "img": [
         {"url": "img/29.1.jpg"},
         {"url": "img/29.2.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 345,
+      "longi": 1293,
       "ymax": "",
       "ymin": ""
     },
@@ -377,8 +377,8 @@ var buildings = {
       "img": [
         {"url": "img/30.1.jpg"},
         {"url": "img/30.2.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 492,
+      "longi": 1367,
       "ymax": "",
       "ymin": ""
     },
@@ -388,8 +388,8 @@ var buildings = {
       "address": "6308 N. Winthrop Ave.",
       "description": "Le Moyne Hall is part of the Winthrop Area, which also includes Fairfield, Seattle, Spring Hill, and Xavier Halls. LeMoyne Hall opened in fall 2008. Studio and one-bedroom doubles are available in Le Moyne Hall. Each room has a bathroom, and kitchenette (with a refrigerator and small stove). All rooms have cable television capabilities and high speed wireless/wired Internet options. The building is equipped with an elevator accessible to all floors. Laundry facilities are located in the building. There is gated parking available to those who pay for a permit from Campus Transportation and access to the gate is granted by Campus Transportation.",
       "img": [{"url": "img/31.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 500,
+      "longi": 1587,
       "ymax": "",
       "ymin": ""
     },
@@ -399,8 +399,8 @@ var buildings = {
       "address": "6333 N. Winthrop Ave.",
       "description": "Simpson Hall is centrally located at the corner of Sheridan and Winthrop. All floors have two student lounges complete with cable TV and furniture. Residents have access to 8 kitchens throughout the building, complete with a stovetop, oven, and sink. Rooms, lounges, and hallways are carpeted. Laundry facilities are located in the building on each residential floor. Each room has a unique layout different from other rooms on the floor. Double rooms range between 180–255 square feet. Simpson Hall is home to a vibrant community of first-year students. Residents frequently spend time in the floor lounges to do homework, watch their favorite TV shows, and attend programs planned by their Resident Assistants. The Simpson Multipurpose Room, located across from the Department of Residence Life, is where students study together and receive tutoring services throughout the year. The Simpson Hall Council is an exciting leadership opportunity available to residents of the building. Hall Council plans events related to resident interests and philanthropy. In recent years, Simpson Hall Council has planned a mug decorating event, a March Madness competition, and a fundraiser for Loyola’s Magis Scholars Fund. Simpson Hall RAs and LCAs also plan exciting programs to connect residents to Loyola and the greater Chicago community throughout the year based on milestones of the Loyola Experience. Simpson Hall is named after Mr. William B. Simpson and his wife, Mrs. Marilyn M. Simpson, both great contributors and supporters of Loyola University Chicago. As a result of their continuous and generous support, the Loyola University Museum of Art (LUMA) also has a lecture room named after Mr. and Mrs. Simpson. Mr. and Mrs. Simpson were also honored with the Honorary Loyola Alumni Award in the 1980s. Simpson Hall opened in 1991.",
       "img": [{"url": "img/32.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 620,
+      "longi": 1400,
       "ymax": "",
       "ymin": ""
     },
@@ -410,8 +410,8 @@ var buildings = {
       "address": "6313 N. Winthrop Ave.",
       "description": "Seattle Hall is a part of the Winthrop Area, which also includes Fairfield, Le Moyne, Spring Hill, and Xavier Halls. Seattle features spacious single, double, and triple apartments. Each room has a bathroom and a kitchenette (with a refrigerator and small stove). All rooms have cable television capabilities and high speed wireless/wired internet options. The building is equipped with an elevator accessible to all four floors. Laundry facilities are located in the building. Parking is available to residents who apply for and pay for a permit through Campus Transportation.",
       "img": [{"url": "img/33.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 606,
+      "longi": 1521,
       "ymax": "",
       "ymin": ""
     },
@@ -421,8 +421,8 @@ var buildings = {
       "address": "6311 N. Winthrop Ave.",
       "description": "Xavier Hall is a part of the Winthrop Area, which also includes Fairfield, Le Moyne, Seattle, and Spring Hill Halls. Xavier includes spacious single, double, and triple apartments. Each apartment has a bathroom and a kitchenette (with a refrigerator and small gas stove). All rooms have cable television capabilities and high speed wireless/wired internet options. This building is equipped with an elevator accessible to all floors. Laundry facilities are available in Seattle Hall, which is adjacent to Xavier.",
       "img": [{"url": "img/34.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 606,
+      "longi": 1569,
       "ymax": "",
       "ymin": ""
     },
@@ -432,8 +432,8 @@ var buildings = {
       "address": "6350 N. Kenmore Ave.",
       "description": "Opened in Fall 2013, de Nobili is home to 200 first year students living on four floors.  This residence hall features a two-story entertainment lounge, four study lounges, and two community kitchens with a full size refrigerator, stove top and oven. The dining hall is located on the ground level and offers a late night dining option for all residents. Laundry facilities are available in the building. de Nobili creates a strong sense of community among the first year students who live there due to the large lounge spaces and presence of Learning Communities in the building. Popular resident activities in de Nobili Hall are the Halloween Carnival and trips to Cubs games.",
       "img": [{"url": "img/35.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 729,
+      "longi": 1300,
       "ymax": "",
       "ymin": ""
     },
@@ -443,8 +443,8 @@ var buildings = {
       "address": "6324 N. Kenmore Ave.",
       "description": "",
       "img": [{"url": "img/36.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 729,
+      "longi": 1300,
       "ymax": "",
       "ymin": ""
     },
@@ -454,8 +454,8 @@ var buildings = {
       "address": "6364 N. Sheridan Rd.",
       "description": "The BVM Hall is part of the Institute of Environmental Sustainability.",
       "img": [{"url": "img/37.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 852,
+      "longi": 1279,
       "ymax": "",
       "ymin": ""
     },
@@ -468,8 +468,8 @@ var buildings = {
         {"url": "img/38.1.jpg"},
         {"url": "img/38.2.jpg"},
         {"url": "img/38.3.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 871,
+      "longi": 1368,
       "ymax": "",
       "ymin": ""
     },
@@ -479,8 +479,8 @@ var buildings = {
       "address": "6327 N. Kenmore Ave.",
       "description": "Opened in Fall 2013, San Francisco Hall (LEED certified) is an integral link to the Institute of Environmental Sustainability. The residence hall houses approximately 400 students living with eco-friendly features and is connected to a cafe, greenhouse and clean energy laboratory.  Several rooms overlook the buildings light-filled EcoDome. San Francisco Hall is also home to the Loyola's GreenHouse learning community. The building has three full kitchen lounges with electric stove tops, ovens, dishwashers and refrigerators for community's use. The building also houses two recreational lounges and a multipurpose room all with the latest HDTV capabilities. Laundry facilities are located in the building along with study lounges on every floor. This state-of-the-art living-learning laboratory promotes sustainable living through in-hall composting, geothermal heating and cooling systems, and rooftop rail water collection and purification system. The rooms, lounges, and hallways are carpeted. Each floor has 2-3 Resident Assistants (student staff members) who put on events and programs for residents to attend, participate, and interact with one another.   Residents enjoy building community with neighbors and fellow residents which lead to lasting friendships.  Residents are also influenced by San Francisco's green features aimed at living a more sustainable life.",
       "img": [{"url": "img/39.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 900,
+      "longi": 1459,
       "ymax": "",
       "ymin": ""
     },
@@ -490,8 +490,8 @@ var buildings = {
       "address": "6301–15 N. Kenmore Ave.",
       "description": "Georgetown Hall is a part of the Kenmore Area, which also includes Canisius, Marquette, and Marquette South Halls.  Georgetown is located on the St. Ignatius Community Plaza and Rosemont Avenue. This residential community houses 125 upper class students. The building is comprised of five person apartments (quints) with full kitchens and two bathrooms. These apartments are particularly popular with upper class students because of their spaciousness and unique design. There is one lounge in Georgetown Hall, and it has a very large courtyard in front, which is a common gathering/programming space during the warmer months.  Students must enter Georgetown Hall through the front gate.  The desk for the Kenmore Area is located at the entrance of Marquette South Hall.",
       "img": [{"url": "img/40.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 879,
+      "longi": 1578,
       "ymax": "",
       "ymin": ""
     },
@@ -501,8 +501,8 @@ var buildings = {
       "address": "6330 N. Sheridan Rd.",
       "description": "",
       "img": [{"url": "img/41.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 983,
+      "longi": 1429,
       "ymax": "",
       "ymin": ""
     },
@@ -514,8 +514,8 @@ var buildings = {
       "img": [
         {"url": "img/42.1.jpg"},
         {"url": "img/42.2.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 1114,
+      "longi": 1275,
       "ymax": "",
       "ymin": ""
     },
@@ -525,8 +525,8 @@ var buildings = {
       "address": "6331 N. Sheridan Rd.",
       "description": "",
       "img": [{"url": "img/43.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 1110,
+      "longi": 1462,
       "ymax": "",
       "ymin": ""
     },
@@ -536,8 +536,8 @@ var buildings = {
       "address": "6256 N. Winthrop Ave.",
       "description": "",
       "img": [{"url": "img/44.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 500,
+      "longi": 1679,
       "ymax": "",
       "ymin": ""
     },
@@ -547,8 +547,8 @@ var buildings = {
       "address": "6244 N. Winthrop Ave.",
       "description": "A cross-cultural living and learning residence on Loyola's Lake Shore Campus.",
       "img": [{"url": "img/45.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 500,
+      "longi": 1724,
       "ymax": "",
       "ymin": ""
     },
@@ -558,8 +558,8 @@ var buildings = {
       "address": "6228–40 N. Winthrop Ave.",
       "description": "Fairfield Hall is a part of the Winthrop Area, which also includes Le Moyne, Seattle, Spring Hill, and Xavier Halls.  Studio and one-bedroom double and two-bedroom quadruple rooms are available in Fairfield Hall. Each room has a bathroom, and kitchenette (with a refrigerator and small stove). All rooms have cable television capabilities and high speed wireless/wired internet options. Two laundry facilities are located in the building. There is gated parking available to those who pay for a permit from Campus Transportation and access to the gate is granted by Campus Transportation. In 2012, Fairfield opened a new student lounge accessible to all students in the hall. The lounge includes seating and study areas as well as a cozy fireplace and big screen TV.",
       "img": [{"url": "img/46.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 500,
+      "longi": 1800,
       "ymax": "",
       "ymin": ""
     },
@@ -569,8 +569,8 @@ var buildings = {
       "address": "6229 N. Winthrop Ave.",
       "description": "Student Housing",
       "img": [{"url": "img/47.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 642,
+      "longi": 1877,
       "ymax": "",
       "ymin": ""
     },
@@ -580,8 +580,8 @@ var buildings = {
       "address": "6211 N. Winthrop Ave.",
       "description": "Spring Hill Hall is part of the Winthrop area, which also includes Fairfield, Le Moyne, Seattle, and Xavier Halls. Spring Hill includes studio and one-bedroom double apartments, which were recently remodeled in 2009. Each room has a bathroom and a kitchenette (with a refrigerator and small stove). All rooms have cable television capabilities and high speed wireless/wired internet options. Spring Hill is located steps from the CTA Granville stop, making travel easy! This building is equipped with an elevator accessible to all floors. Laundry facilities are located in the building. Parking is available to residents to those who apply for and pay for a permit through Campus Transportation.",
       "img": [{"url": "img/48.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 623,
+      "longi": 1951,
       "ymax": "",
       "ymin": ""
     },
@@ -591,8 +591,8 @@ var buildings = {
       "address": "6246 N. Kenmore Ave.",
       "description": "Canisius Hall is a part of the Kenmore Area, which also includes Georgetown, Marquette and Marquette South Halls.  This residential community houses 70 upper-class students. The building is comprised of apartment-style studio and one bedroom double rooms, including full kitchenette, full refrigerator, stovetop and oven. All rooms have cable television capabilities and high speed wireless/wired internet options. Laundry facilities are located in the building. The desk for the Kenmore Area is located at the entrance of Marquette South Hall.",
       "img": [{"url": "img/49.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 745,
+      "longi": 1820,
       "ymax": "",
       "ymin": ""
     },
@@ -602,8 +602,8 @@ var buildings = {
       "address": "6255 N. Kenmore Ave.",
       "description": "Marquette Hall is a part of the Kenmore Area, which also includes Canisius, Georgetown, and Marquette South Halls.  Marquette is home to 150 upper-class students. The building is comprised of apartment-style studio and one bedroom double rooms, including full kitchenette including full refrigerator stovetop and oven. All rooms have cable television capabilities and high speed wireless/wired internet options. There is gated parking available to those who pay for a permit from Campus Transportation and access to the gate is granted by Campus Transportation. Students must enter Marquette Hall through the front gate and front door. Laundry facilities are located in the building.",
       "img": [{"url": "img/50.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 878,
+      "longi": 1688,
       "ymax": "",
       "ymin": ""
     },
@@ -613,8 +613,8 @@ var buildings = {
       "address": "6241 N. Kenmore Ave.",
       "description": "Marquette South Hall is a part of the Kenmore Area, which also includes Canisius, Georgetown, and Marquette Halls.  Newly remodeled in 2012, Marquette South houses approximated 110 students. The facility is comprised of apartment-style studio doubles, one-bedroom doubles, and one-bedroom triples including full bathrooms and kitchens. All rooms have cable television capabilities and high speed wireless/wired internet options. There are lounges on all floors excluding the second floor where the laundry room is located. There is gated parking available only to residents of the hall who pay for a permit from Campus Transportation, access to the gate is granted by Campus Transportation. Students must enter the residence hall through the front gate and front door. The desk for the Kenmore Area is located at the entrance of Marquette South Hall.",
       "img": [{"url": "img/51.1.jpg"}],
-      "lat": 10,
-      "longi": -90,
+      "lat": 878,
+      "longi": 1759,
       "ymax": "",
       "ymin": ""
     },

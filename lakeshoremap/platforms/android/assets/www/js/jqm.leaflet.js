@@ -122,7 +122,7 @@
 			// }
 			 var buildingIcon = L.icon({
     			iconUrl: 'img/icons/building.png',
-    			iconSize:     [30, 30] // size of the icon
+    			iconSize:     [20, 20] // size of the icon
 			});
 
 			
@@ -137,6 +137,7 @@
   				// markers[i].bindPopup(buildings.building[i].name);
   				markers[i].addTo(self.map.map);
   			}
+  			markers[0].setOpacity(0);
 
 
   			var locationIcon = L.icon({
@@ -154,24 +155,19 @@
     			iconUrl: 'img/icons/location.png',
     			iconSize:     [10, 15] // size of the icon
 			});
-  			var calibPosition1=[-251,28];
-  			var calibPosition2=[-55,68];	
-  			var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
-  			var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
 
-  // var x1_pixel = 661,
-  //     y1_pixel = 1664,
-  //     x2_pixel = 1024,
-  //     y2_pixel = 1077,
-  //     x1_leaf = -70,
-  //     y1_leaf = -70,
-  //     x2_leaf = 0,
-  //     y2_leaf = 0;  
+			
+  // 			var calibPosition1=[-251,28];
+  // 			var calibPosition2=[-55,68];	
+  // 			var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
+  // 			var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
 
-  var offset1 = 1840;
-  var offset2 = 770;
-  var testPosition=pixel2leaflet(20,20);
-  			var markerTest = L.marker(testPosition,{icon: locationIcon2}).addTo(self.map.map);
+
+
+  // var offset1 = 1840;
+  // var offset2 = 770;
+  // var testPosition=pixel2leaflet(20,20);
+  // 			var markerTest = L.marker(testPosition,{icon: locationIcon2}).addTo(self.map.map);
 
 
 

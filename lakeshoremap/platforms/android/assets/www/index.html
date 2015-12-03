@@ -78,20 +78,14 @@
       lat2_leaf = -15,
       long2_leaf = 150;  
 
-  var alpha_x = (long2_leaf-long1_leaf)/(x2_pixel-x1_pixel);
-  var alpha_y = (lat2_leaf-lat1_leaf)/(y2_pixel-y1_pixel);
-  function pixel2leaflet(x,y){
-    // var alpha_x = (x1_leaf-x2_leaf)/(x1_pixel-x2_pixel);
-    // var alpha_y = (y1_leaf-y2_leaf)/(y1_pixel-y2_pixel);
-    // return [alpha_x*(x1_pixel-x),alpha_y*(y1_pixel-y)]
-    // y -> latitude x->longitude
 
-    // return [-(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
-    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
-    var offsetLat = 0;
+  function pixel2leaflet(x,y){
+
+
+    var alpha_x = (long2_leaf-long1_leaf)/(x2_pixel-x1_pixel);
+    var alpha_y = (lat2_leaf-lat1_leaf)/(y2_pixel-y1_pixel);
     return [(alpha_y*(y-y1_pixel)+lat1_leaf),(alpha_x*(x-x1_pixel)+long1_leaf)]
-    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
-    // return [lat,lng]
+
   }
   function coord2leaflet(x,y){
     var lat1_google = 41.994599,
@@ -103,24 +97,13 @@
         lat2_leaf2 = -55,
         long2_leaf2 = 68;
 
-  var alpha_long_google = (long2_leaf2-long1_leaf2)/(long2_google-long1_google);
-  var alpha_lat_google = (lat2_leaf2-lat1_leaf2)/(lat2_google-lat1_google);
+    var alpha_long_google = (long2_leaf2-long1_leaf2)/(long2_google-long1_google);
+    var alpha_lat_google = (lat2_leaf2-lat1_leaf2)/(lat2_google-lat1_google);
 
 
-    
-    // var alpha_x = (x1_leaf-x2_leaf)/(x1_pixel-x2_pixel);
-    // var alpha_y = (y1_leaf-y2_leaf)/(y1_pixel-y2_pixel);
-    // return [alpha_x*(x1_pixel-x),alpha_y*(y1_pixel-y)]
-    // y -> latitude x->longitude
-
-    // return [-(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
-    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
-    var offsetLat = 0;
     return [(alpha_lat_google*(x-lat1_google)+lat1_leaf2 ),(alpha_long_google*(y-long1_google)+long1_leaf2 )]
-    // return [(alpha_y*(y-y1_pixel)+y1_leaf),(alpha_x*(x-x1_pixel)+x1_leaf)]
-    // return [lat,lng]
   }
-  var teste = pixel2leaflet(300,1700);
+
 </script>
   <script src="js/init.js"></script> 
   <script src="js/jqm.leaflet.js"></script>
@@ -221,23 +204,6 @@
   </div>
 </div>
 
-<!-- <div data-role="page" id="buildingPage">
-
-  <div data-role="header">
-  </div>
-  <div role="main" class="content">
-    <div id = "buildingDescription"></div>
-  </div>
-  <div data-role="footer" data-position="fixed" > 
-      <div data-role="navbar" data-iconpos="left">
-        <ul>
-          <li><a data-rel="back" data-icon="back" >Return</a></li>
-          <li><a onClick = "showBuilding()" data-icon="location">Find</a></li>
-        </ul>
-      </div>
-  </div>
-</div> -->
-<!-- /page3 -->
 
 
       <script type='text/javascript'>
@@ -280,19 +246,10 @@
               result += "</a></li>";
 
 
-              // result += "<li data-role='collapsible' data-iconpos='right' data-shadow='false' data-corners='false'>";
-              // result += "<h2>"+ buildingsJson[i][1]+"</h2>";
-              // result += "<ul data-role='listview' data-shadow='false' data-inset='true' data-corners='false'>";
-              // result += "<li><a onClick = 'renderBuildingPage("+buildingsJson[i][0]+")'>"+ "Details</a></li>";
-              // result += "<li><a>Delete</a></li>";
-              // result += "</ul>";
-              // result += "</li>";
-
-
 
 
             }
-            // result +="</ul>";
+
             break;
 
           default:
@@ -329,14 +286,13 @@
     }
     $(document).on("pageshow", "#buildings", function( event ) {
       var slider = $('.bxslider').bxSlider({
-          auto: true,
           autoControls: true
       });
       var fillss = fillFooterBuilding();
 
       $("#buildingName").html(buildings.building[currentBuildingId].name);
       $("#bximages").html("");
-      // $("#bximages").html("<li><img src="+ buildings.building[currentBuildingId].img + "></li><li><img src="+ buildings.building[currentBuildingId].img + "></li>");
+
       for (j in buildings.building[currentBuildingId].img){
         $("#bximages").append("<li><img src="+ buildings.building[currentBuildingId].img[j].url + "></li>");
       }
@@ -387,7 +343,6 @@
       }
       renderFavPage();
 
-      // window.location="#pageFavBuildings";
 
     }
 
@@ -422,8 +377,6 @@
 
         $("#listViewFavBuilding").html(result);
         $("#listViewFavBuilding").listview().listview('refresh');
-        // return result;
-        // window.location = pageFavBuildings2;
 
         
       }

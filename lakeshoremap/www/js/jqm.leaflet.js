@@ -122,7 +122,7 @@
 			// }
 			 var buildingIcon = L.icon({
     			iconUrl: 'img/icons/building.png',
-    			iconSize:     [30, 30] // size of the icon
+    			iconSize:     [20, 20] // size of the icon
 			});
 
 			
@@ -130,7 +130,7 @@
 				var x_y_leaf = pixel2leaflet(buildings.building[i].lat,buildings.building[i].longi);
   				// var marker = L.marker([buildings.building[i].lat,buildings.building[i].longi],{icon: buildingIcon}).addTo(self.map.map);
   				// markers.push(marker);
-  				var marker = L.marker(x_y_leaf,{icon: buildingIcon}).addTo(self.map.map);
+  				var marker = L.marker(x_y_leaf).addTo(self.map.map);
   				markers.push(marker);  				
   				markers[i].bindPopup('<a  onClick = renderBuildingPage('+i+')>'+buildings.building[i].name+'</a>');
   				// markers[i].bindPopup('<p>'+buildings.building[i].name+'</p> <button onClick = renderBuildingPage('+i+')>Description</button>');
