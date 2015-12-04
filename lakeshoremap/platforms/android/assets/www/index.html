@@ -143,7 +143,7 @@
      <div class="headerMenu">
      <nd2-include data-src="panel.left.html"></nd2-include>
       <div data-role="header">
-        <a href="#pageListBuilding" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a>
+        <a href="#pageListBuilding2" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a>
         <a href="#leftpanel" class="ui-btn ui-btn-left"><i class="fa fa-bars"></i></a>
         <!-- <a href="#pageListBuilding" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a> -->
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
@@ -172,6 +172,20 @@
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
       </div>
   <div role="main" class="content" id = "listBuilding">
+<!--     <div id = "listBuilding">
+    </div>
+     -->
+  </div><!-- /content -->
+  <div data-role="footer" data-position="fixed"> 
+  </div><!-- /footer -->
+</div><!-- /page2 -->
+
+<div data-role="page" id="pageListBuilding2">
+      <div data-role="header">
+        <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
+        <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
+      </div>
+  <div role="main" class="content" id = "listBuilding2">
 <!--     <div id = "listBuilding">
     </div>
      -->
@@ -267,6 +281,17 @@
             }
 
             break;
+            case 4:
+            var ordenationAux = sortListFunction(buildingsJson);
+            var result = "";
+            result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+            for(var i=0; i<buildingsJson.length; i++) {
+              // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
+              result += "<li><a  href = '#homePage' onClick = 'setCurrentBuilding("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+              result += "</a></li>";
+            }
+            result +="</ul>";
+            break;
 
           default:
             break;
@@ -285,6 +310,8 @@
     document.getElementById('listBuilding').innerHTML = total;
     var total2 = createListBuilding(buildings.building,2);
     document.getElementById('listAllFavBuilding').innerHTML = total2;
+    var total4 = createListBuilding(buildings.building,4);
+    document.getElementById('listBuilding2').innerHTML = total4;
 
 
 
