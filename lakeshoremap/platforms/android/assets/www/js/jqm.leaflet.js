@@ -48,7 +48,7 @@
    //       	imageBounds = L.latLngBounds([
    //      		[imageBoundsCoord.south, imageBoundsCoord.west],
    //      		[imageBoundsCoord.north, imageBoundsCoord.east]]);
-         	var imageUrl = 'img/lsc.png';
+         	var imageUrl = 'img/lsc.jpg';
 
 
 
@@ -123,7 +123,7 @@
 			// }
 			 var buildingIcon = L.icon({
     			iconUrl: 'img/icons/building.png',
-    			iconSize:     [20, 20] // size of the icon
+    			iconSize:     [30, 30] // size of the icon
 			});
 
 			
@@ -131,12 +131,13 @@
 				var x_y_leaf = pixel2leaflet(buildings.building[i].lat,buildings.building[i].longi);
   				// var marker = L.marker([buildings.building[i].lat,buildings.building[i].longi],{icon: buildingIcon}).addTo(self.map.map);
   				// markers.push(marker);
-  				var marker = L.marker(x_y_leaf).addTo(self.map.map);
+  				var marker = L.marker(x_y_leaf,{icon: buildingIcon}).addTo(self.map.map);
   				markers.push(marker);  				
   				markers[i].bindPopup('<a  onClick = renderBuildingPage('+i+')>'+buildings.building[i].name+'</a>');
   				// markers[i].bindPopup('<p>'+buildings.building[i].name+'</p> <button onClick = renderBuildingPage('+i+')>Description</button>');
   				// markers[i].bindPopup(buildings.building[i].name);
   				markers[i].addTo(self.map.map);
+  				markers[i].setOpacity(0);
   			}
   			markers[0].setOpacity(0);
 
@@ -164,8 +165,8 @@
         myPosition[1] = location.coords.longitude;
 
         // testing
-        // var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
-        var myFinalPosition = coord2leaflet(41.998183,-87.6573519);
+        var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
+        // var myFinalPosition = coord2leaflet(41.999183,-87.6573519);
         markerMyPosition.setLatLng(myFinalPosition).update();
             markerMyPosition.setOpacity(1);
             markerMyPosition.openPopup();
@@ -182,10 +183,10 @@
 
 
 			
-  			var calibPosition1=coord2leaflet(41.999183,-87.6573519);
-  			var calibPosition2=coord2leaflet(41.9975592,-87.657218);	
-  			var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
-  			var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
+  			// var calibPosition1=coord2leaflet(41.999183,-87.6573519);
+  			// var calibPosition2=coord2leaflet(41.9975592,-87.657218);	
+  			// var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
+  			// var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
   			L.easyButton('fa-location-arrow', function(){       navigator.geolocation.getCurrentPosition(onSuccess2,
           onFail2, {
           timeout: 15000,
