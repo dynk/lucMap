@@ -6,6 +6,7 @@
   <title>TDT</title>
   <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/leaflet.css" />
+  <link rel="stylesheet" href="css/easybutton.css" />
   <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -20,6 +21,7 @@
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="css/waves.min.css" />
   <link rel="stylesheet" href="css/nativedroid2.css" />
+  <script src="js/easybutton.js"></script>
   <script src="js/nativedroid2.js"></script>
   <script src="js/nd2settings.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -29,8 +31,20 @@
 
 
 <script type='text/javascript'>
+
+
+      // function getLocation2() {
+      //   navigator.geolocation.getCurrentPosition(onSuccess2,
+      //     onFail2, {
+      //     timeout: 15000,
+      //     enableHighAccuracy: true
+      //   });
+      // }
+
+
   // var mapWidth = 1420,
   //   mapHeight = 2048;
+  var markersOpacity = 1;
   var mapWidth = 1350;
   var mapHeight = 2144;
   // 999 indica q nenhum popup teve que ser aberto
@@ -116,8 +130,8 @@
   }
 
     .map{
-      width:350px;
-      height:600px;
+      width:330px;
+      height:500px;
       margin:0 auto;
     }
 
@@ -129,9 +143,11 @@
      <div class="headerMenu">
      <nd2-include data-src="panel.left.html"></nd2-include>
       <div data-role="header">
+        <a href="#pageListBuilding" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a>
         <a href="#leftpanel" class="ui-btn ui-btn-left"><i class="fa fa-bars"></i></a>
+        <!-- <a href="#pageListBuilding" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a> -->
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
-        <a href="#" class="ui-btn ui-btn-rigt wow fadeIn" data-wow-delay='1.2s'><i class="zmdi"></i></a>
+        <!-- <a href="#" class="ui-btn ui-btn-rigt wow fadeIn" data-wow-delay='1.2s'><i class="zmdi"></i></a> -->
       </div>
     </div>
 
@@ -288,7 +304,7 @@
       var slider = $('.bxslider').bxSlider({
           autoControls: true
       });
-      var fillss = fillFooterBuilding();
+      var fillss = "";
 
       $("#buildingName").html(buildings.building[currentBuildingId].name);
       $("#bximages").html("");
@@ -384,23 +400,23 @@
     }
 
 
+
     function deleteAllFavBuilding(){
       localStorage.clear();
       renderFavPage();
     }
-
-    function fillFooterBuilding(){
-      var footerBuilding = "";
-      if (favBuildingFlag){
-        footerBuilding += "<div data-role= 'navbar' id = 'nav' data-iconpos='left'>";
-        footerBuilding += '<ul>';
-        footerBuilding += ' <li><a>Delete</a></li>';
-        footerBuilding += '</ul>';   
-        footerBuilding += "</div>";           
+    function toggleMarkers(){
+      if(markersOpacity == 0){
+        markersOpacity = 1;
+      }else{
+        markersOpacity = 0;
       }
-      return footerBuilding;
-
+      for (var i = 1; i < markers.length; i++) {
+        markers[i].setOpacity(markersOpacity);
+      }
     }
+
+
 
 
 

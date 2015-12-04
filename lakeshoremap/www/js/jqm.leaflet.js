@@ -15,6 +15,7 @@
 			leafletAttribution:true,
 			//Default Config Object for map initialization
 			config : {
+				// zoomControl: false,
   				minZoom: 1,
   				maxZoom: 4,
   				center: [0, 0],
@@ -155,12 +156,42 @@
     			iconUrl: 'img/icons/location.png',
     			iconSize:     [10, 15] // size of the icon
 			});
+		function onSuccess2(location) {
+
+        //device's latitude
+        myPosition[0] = location.coords.latitude;
+        //device's longitude
+        myPosition[1] = location.coords.longitude;
+
+        // testing
+        var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
+        // var myFinalPosition = coord2leaflet(41.998183,-87.6573519);
+        markerMyPosition.setLatLng(myFinalPosition).update();
+            markerMyPosition.setOpacity(1);
+            markerMyPosition.openPopup();
+            // $( "#bars" ).panel( "close" );
+
+        //output result to #location div...
+        // $("#location").append("<p>my latitude = "+myLatitude+"</p><p>my longitude = "+myLongitude+"</p>");
+      }
+
+      function onFail2(error) {
+        // $("#location").append("location error code = "+error.code+" message = "+error.message);
+        console.log("error trying to find location!")
+      }
+
 
 			
-  // 			var calibPosition1=[-251,28];
-  // 			var calibPosition2=[-55,68];	
-  // 			var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
-  // 			var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
+  			// var calibPosition1=coord2leaflet(41.999183,-87.6573519);
+  			// var calibPosition2=coord2leaflet(41.9975592,-87.657218);	
+  			// var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
+  			// var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
+  			L.easyButton('fa-location-arrow', function(){       navigator.geolocation.getCurrentPosition(onSuccess2,
+          onFail2, {
+          timeout: 15000,
+          enableHighAccuracy: true
+        });}).addTo(self.map.map);
+
 
 
 
