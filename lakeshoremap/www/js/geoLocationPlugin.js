@@ -9,16 +9,6 @@
 				
 				var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
 
-
-				// testing
-				myFinalPosition[0] = -50;
-				myFinalPosition[1] = 90;
-
-				markerMyPosition.setLatLng(myFinalPosition).update();
-      			markerMyPosition.setOpacity(1);
-      			markerMyPosition.openPopup();
-      			// window.setTimeout(function(){ markerMyPosition.setOpacity(0); }, 2000000000000000000000000000000)
-
 			}
 
 			function locationOnFail(error) {
