@@ -1,26 +1,0 @@
-#buildingImages{
-	 width:100%;
-	 padding:0;
-	 margin-left: 0;
-	 float: left;
-	 overflow: hidden;
-	 height: 250px;
-}
-
-#buildingImg{
-	width:100%;
-	height:auto;
-	display: block;
-}
-
-#buildingDescription{
-	margin-top:5px;
-}
-
-.headerMenu{
-z-index: 9999;
-position: relative;
-}
-
-.mapContainer{
-z-index: 0;position: fixed;}
