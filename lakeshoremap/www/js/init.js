@@ -10,8 +10,6 @@ $(document).on('pageshow','#homePage', function(){
 		markers[currentBuildingId].openPopup();
 		currentBuildingId = 999;
 	}
-	// if((myPosition[0]!=0)&(myPosition[1]!=0)){
-	// 	markerMyPosition.openPopup();
-	// }
+
 });
 

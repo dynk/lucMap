@@ -22,38 +22,11 @@
   				zoom: 1,
   				crs: L.CRS.Simple
 			},
-			// //Default TileLayer
-			// tileLayer:{
-			// 	url:'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-			// 	config:{
-			// 		layers: '',
-   //  				format: 'image/png',
-			// 		transparent: true,
-			// 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-			// 	},
-			// 	wms:false
-			// },
-			// marker:{
-			// },
 			initSelector: ".map"
 		},
 
 		_create: function() {
-			// var imageBoundsCoord = {
-   //          	north: 42.0027041,
-   //          	south: 41.9946522,
-   //          	east: -87.6535342,
-   //          	west: -87.6618519
-   //       	};
-   //       	imageBounds = L.latLngBounds([
-   //      		[imageBoundsCoord.south, imageBoundsCoord.west],
-   //      		[imageBoundsCoord.north, imageBoundsCoord.east]]);
          	var imageUrl = 'img/lsc.jpg';
-
-
-
-
-
 			var self = this,
 			options = $.extend(
 				this.options,
@@ -89,14 +62,6 @@
 				self.map.map.attributionControl.setPrefix('');
 			}
 
-			//Add the default TileLayer as set in options and add it to our layer-set
-			// if(options.tileLayer.wms){
-			// 	self.map.layer.push(L.tileLayer.wms(options.tileLayer.url, options.tileLayer.config).addTo(self.map.map));
-			// }else{
-			// 	self.map.layer.push(L.tileLayer(options.tileLayer.url, options.tileLayer.config).addTo(self.map.map));	
-			// }
-
-
 
 			// calculate the edges of the image, in coordinate space
 			var southWest = self.map.map.unproject([0, mapHeight], self.map.map.getMaxZoom()-1);
@@ -108,19 +73,6 @@
 	
 
 
-
-
-
-			//Check if the map-container has data-parameters for a marker
-			// if( typeof self.map.element.attr('data-marker-lat') !== 'undefined' && typeof self.map.element.attr('data-marker-lng') !== 'undefined' ){
-			// 	self.createMarker([self.map.element.attr('data-marker-lat'),self.map.element.attr('data-marker-lng')]);
-			// }
-
-			// if( eval('typeof '+self.map.id+'_marker') !== 'undefined' ){
-			// 	$.each(eval(self.map.id+'_marker'), function(index, value) {
-			// 		self.createMarker(value);
-			// 	});
-			// }
 			 var buildingIcon = L.icon({
     			iconUrl: 'img/icons/building.png',
     			iconSize:     [30, 30] // size of the icon
@@ -129,16 +81,14 @@
 			
 			for (var i = 0; i < buildings.building.length; i++) {
 				var x_y_leaf = pixel2leaflet(buildings.building[i].lat,buildings.building[i].longi);
-  				// var marker = L.marker([buildings.building[i].lat,buildings.building[i].longi],{icon: buildingIcon}).addTo(self.map.map);
-  				// markers.push(marker);
+
   				var marker = L.marker(x_y_leaf,{icon: buildingIcon}).addTo(self.map.map);
   				markers.push(marker);  				
   				markers[i].bindPopup('<a  onClick = renderBuildingPage('+i+')>'+buildings.building[i].name+'</a>');
-  				// markers[i].bindPopup('<p>'+buildings.building[i].name+'</p> <button onClick = renderBuildingPage('+i+')>Description</button>');
-  				// markers[i].bindPopup(buildings.building[i].name);
   				markers[i].addTo(self.map.map);
   				markers[i].setOpacity(0);
   			}
+  			// markers are invisible
   			markers[0].setOpacity(0);
 
 
@@ -157,7 +107,7 @@
     			iconUrl: 'img/icons/location.png',
     			iconSize:     [10, 15] // size of the icon
 			});
-		function onSuccess2(location) {
+		function locationOnSuccess(location) {
 
         //device's latitude
         myPosition[0] = location.coords.latitude;
@@ -166,18 +116,13 @@
 
         // testing
         var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
-        // var myFinalPosition = coord2leaflet(41.999183,-87.6573519);
         markerMyPosition.setLatLng(myFinalPosition).update();
             markerMyPosition.setOpacity(1);
             markerMyPosition.openPopup();
-            // $( "#bars" ).panel( "close" );
 
-        //output result to #location div...
-        // $("#location").append("<p>my latitude = "+myLatitude+"</p><p>my longitude = "+myLongitude+"</p>");
       }
 
-      function onFail2(error) {
-        // $("#location").append("location error code = "+error.code+" message = "+error.message);
+      function locationOnFail(error) {
         console.log("error trying to find location!")
       }
 
@@ -187,56 +132,16 @@
   			// var calibPosition2=coord2leaflet(41.9975592,-87.657218);	
   			// var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
   			// var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
-  			L.easyButton('fa-location-arrow', function(){       navigator.geolocation.getCurrentPosition(onSuccess2,
-          onFail2, {
+  			L.easyButton('fa-location-arrow', function(){ navigator.geolocation.getCurrentPosition(locationOnSuccess,
+          locationOnFail, {
           timeout: 15000,
           enableHighAccuracy: true
         });}).addTo(self.map.map);
 
 
-
-
-  // var offset1 = 1840;
-  // var offset2 = 770;
-  // var testPosition=pixel2leaflet(20,20);
-  // 			var markerTest = L.marker(testPosition,{icon: locationIcon2}).addTo(self.map.map);
-
-
-
-
-
-
 		},
 
-		//Create a marker and add it to the map
-		//The marker is created from the marker-config in the options
-		//data:
-		//	Array of float/integer/string: [52.52,13.41]
-		//	Object: {lat:52.52, lng:13.41}
-		//	Object with Marker Config: {lat:52.52, lng:13.41, icon:L.Icon(), title:'', clickable:true, ...}
-		// createMarker: function(data){
-		// 	var lat, lng, self = this;
-		// 	if(data instanceof Array){
-		// 		lat = data[0];
-		// 		lng = data[1];
-		// 	}else if(data instanceof Object){
-		// 		lat = data.lat;
-		// 		lng = data.lng;
-		// 		var options = $.extend(
-		// 			this.options.marker,
-		// 			data
-		// 		);
-		// 	}else{
-		// 		return undefined;
-		// 	}
 
-
-		// 	var marker = L.marker(new L.LatLng(self.cleanCoordinate(lat), self.cleanCoordinate(lng)), options);
-		// 	marker.addTo(self.map.map);
-		// 	self.map.marker.push(marker);
-
-		// 	return marker;
-		// },
 
 		//If latitude comes with "," instead of "." replace them (european)
 		cleanCoordinate: function(coord){
