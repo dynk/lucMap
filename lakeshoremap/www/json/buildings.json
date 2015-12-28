@@ -433,7 +433,7 @@ var buildings = [
       "description": "",
       "img": [{"url": "img/buildings/36.1.jpg"}],
       "lat": 729,
-      "longi": 1300,
+      "longi": 1425,
       "order": "35",
       "ymin": ""
     },
