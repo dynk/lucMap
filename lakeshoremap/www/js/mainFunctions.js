@@ -97,6 +97,7 @@
       }
 
       slider.reloadSlider();
+      $("#buildingAddress").html("<b>Address:</b>  " + buildings[currentBuildingOrder].address);
       $("#buildingDescription").html(buildings[currentBuildingOrder].description);
       $("#deleteFavoriteBuilding").html(fillss);
 
