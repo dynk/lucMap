@@ -7,7 +7,7 @@
   var mapWidth = 1350;
   var mapHeight = 2144;
   // 999 indica q nenhum popup teve que ser aberto
-  var currentBuildingId = 999;
+  var currentBuildingOrder = 999;
   var myPosition=[0,0];
   var markerMyPosition;
   var markers = [];

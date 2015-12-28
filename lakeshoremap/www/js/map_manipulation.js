@@ -28,10 +28,10 @@ var overlay = L.imageOverlay(imageUrl, imageBounds)
     .addTo(map);
 
     //setting markers on the map
-for (var i = 0; i < buildings.building.length; i++) {
-  var marker = L.marker([buildings.building[i].lat,buildings.building[i].longi]).addTo(map);
+for (var i = 0; i < buildings.length; i++) {
+  var marker = L.marker([buildings[i].lat,buildings[i].longi]).addTo(map);
   markers.push(marker);
-  markers[i].bindPopup(buildings.building[i].description);
+  markers[i].bindPopup(buildings[i].description);
   markers[i].addTo(map);
   }
 

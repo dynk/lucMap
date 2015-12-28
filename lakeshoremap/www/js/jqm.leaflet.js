@@ -79,17 +79,17 @@
 			});
 
 			
-			for (var i = 0; i < buildings.building.length; i++) {
-				var x_y_leaf = pixel2leaflet(buildings.building[i].lat,buildings.building[i].longi);
+			for (var i = 0; i < buildings.length; i++) {
+				var x_y_leaf = pixel2leaflet(buildings[i].lat,buildings[i].longi);
 
   				var marker = L.marker(x_y_leaf,{icon: buildingIcon}).addTo(self.map.map);
   				markers.push(marker);  				
-  				markers[i].bindPopup('<a  onClick = renderBuildingPage('+i+')>'+buildings.building[i].name+'</a>');
+  				markers[i].bindPopup('<a  onClick = renderBuildingPage('+i+')>'+buildings[i].name+'</a>');
   				markers[i].addTo(self.map.map);
+  				// markers are invisible
   				markers[i].setOpacity(0);
   			}
-  			// markers are invisible
-  			markers[0].setOpacity(0);
+  			
 
 
   			var locationIcon = L.icon({

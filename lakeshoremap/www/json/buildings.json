@@ -1,16 +1,5 @@
-var buildings = {
-        "building": [
-    {
-      "id": "0",
-      "name": "W Road",
-      "address": "6628 N. Sheridan Rd.",
-      "description": "Bellarmine Hall serves as an apartment-style facility housing upper-class students.  The population consists of primarily sophomore and transfer students though there are also junior and senior level students who call it home.  The resident capacity for Bellarmine is approximately 300 students. Bellarmine is located on the north end of campus. All floors have student lounges. There is gated parking available to students who reside in any on campus residence hall and who register with Campus Transportation. Kitchens in Bellarmine apartments include a full refrigerator, stovetop and oven.",
-      "img": [{"url": "img/1.1.jpg"}],
-      "lat": 0,
-      "longi": 0,
-      "ymax": "",
-      "ymin": ""
-    },
+var buildings = [
+
     {
       "id": "1",
       "name": "Bellarmine Hall",
@@ -19,7 +8,7 @@ var buildings = {
       "img": [{"url": "img/1.1.jpg"}],
       "lat": 132,
       "longi": 105,
-      "ymax": "",
+      "order": "0",
       "ymin": ""
     },
     {
@@ -30,7 +19,7 @@ var buildings = {
       "img": [{"url": "img/2.1.jpg"}],
       "lat": 300,
       "longi": 314,
-      "ymax": "",
+      "order": "1",
       "ymin": ""
     },
     {
@@ -41,7 +30,7 @@ var buildings = {
       "img": [{"url": "img/3.1.jpg"}],
       "lat": 363,
       "longi": 388,
-      "ymax": "",
+      "order": "2",
       "ymin": ""
     },
     {
@@ -52,7 +41,7 @@ var buildings = {
       "img": [{"url": "img/4.1.png"}],
       "lat": 460,
       "longi": 388,
-      "ymax": "",
+      "order": "3",
       "ymin": ""
     },
     {
@@ -63,7 +52,7 @@ var buildings = {
       "img": [{"url": "img/5.1.png"}],
       "lat": 661,
       "longi": 377,
-      "ymax": "",
+      "order": "4",
       "ymin": ""
     },
     {
@@ -74,7 +63,7 @@ var buildings = {
       "img": [{"url": "img/6.1.png"}],
       "lat": 754,
       "longi": 392,
-      "ymax": "",
+      "order": "5",
       "ymin": ""
     },
     {
@@ -85,7 +74,7 @@ var buildings = {
       "img": [{"url": "img/7.1.jpg"}],
       "lat": 886,
       "longi": 392,
-      "ymax": "",
+      "order": "6",
       "ymin": ""
     },
     {
@@ -98,7 +87,7 @@ var buildings = {
         {"url": "img/8.2.jpg"}],
       "lat": 270,
       "longi": 507,
-      "ymax": "",
+      "order": "7",
       "ymin": ""
     },
     {
@@ -109,7 +98,7 @@ var buildings = {
       "img": [{"url": "img/9.1.jpg"}],
       "lat": 380,
       "longi": 507,
-      "ymax": "",
+      "order": "8",
       "ymin": ""
     },
     {
@@ -122,7 +111,7 @@ var buildings = {
         {"url": "img/10.2.jpg"}],
       "lat": 900,
       "longi": 507,
-      "ymax": "",
+      "order": "9",
       "ymin": ""
     },
     {
@@ -138,7 +127,7 @@ var buildings = {
         {"url": "img/11.5.jpg"}],
       "lat": 330,
       "longi": 700,
-      "ymax": "",
+      "order": "10",
       "ymin": ""
     },
     {
@@ -152,7 +141,7 @@ var buildings = {
         {"url": "img/12.3.jpg"}],
       "lat": 455,
       "longi": 655,
-      "ymax": "",
+      "order": "11",
       "ymin": ""
     },
     {
@@ -166,7 +155,7 @@ var buildings = {
         {"url": "img/13.3.jpg"}],
       "lat": 542,
       "longi": 664,
-      "ymax": "",
+      "order": "12",
       "ymin": ""
     },
     {
@@ -179,7 +168,7 @@ var buildings = {
         {"url": "img/14.2.jpg"}],
       "lat": 663,
       "longi": 688,
-      "ymax": "",
+      "order": "13",
       "ymin": ""
     },
     {
@@ -192,7 +181,7 @@ var buildings = {
         {"url": "img/15.2.jpg"}],
       "lat": 840,
       "longi": 610,
-      "ymax": "",
+      "order": "14",
       "ymin": ""
     },
     {
@@ -205,7 +194,7 @@ var buildings = {
         {"url": "img/16.2.jpg"}],
       "lat": 956,
       "longi": 775,
-      "ymax": "",
+      "order": "15",
       "ymin": ""
     },
     {
@@ -218,7 +207,7 @@ var buildings = {
         {"url": "img/17.2.jpg"}],
       "lat": 961,
       "longi": 905,
-      "ymax": "",
+      "order": "16",
       "ymin": ""
     },
     {
@@ -229,7 +218,7 @@ var buildings = {
       "img": [{"url": "img/18.1.jpg"}],
       "lat": 695,
       "longi": 846,
-      "ymax": "",
+      "order": "17",
       "ymin": ""
     },
     {
@@ -243,7 +232,7 @@ var buildings = {
         {"url": "img/19.3.jpg"}],
       "lat": 751,
       "longi": 994,
-      "ymax": "",
+      "order": "18",
       "ymin": ""
     },
     {
@@ -256,7 +245,7 @@ var buildings = {
         {"url": "img/20.2.jpg"}],
       "lat": 422,
       "longi": 888,
-      "ymax": "",
+      "order": "19",
       "ymin": ""
     },
     {
@@ -267,7 +256,7 @@ var buildings = {
       "img": [{"url": "img/21.1.jpg"}],
       "lat": 244,
       "longi": 917,
-      "ymax": "",
+      "order": "20",
       "ymin": ""
     },
     {
@@ -278,7 +267,7 @@ var buildings = {
       "img": [{"url": "img/22.1.jpg"}],
       "lat": 262,
       "longi": 1009,
-      "ymax": "",
+      "order": "21",
       "ymin": ""
     },
     {
@@ -292,7 +281,7 @@ var buildings = {
         {"url": "img/23.3.jpg"}],
       "lat": 603,
       "longi": 1124,
-      "ymax": "",
+      "order": "22",
       "ymin": ""
     },
     {
@@ -303,7 +292,7 @@ var buildings = {
       "img": [{"url": "img/24.1.jpg"}],
       "lat": 736,
       "longi": 1124,
-      "ymax": "",
+      "order": "23",
       "ymin": ""
     },
     {
@@ -314,7 +303,7 @@ var buildings = {
       "img": [{"url": "img/25.1.jpg"}],
       "lat": 887,
       "longi": 1102,
-      "ymax": "",
+      "order": "24",
       "ymin": ""
     },
     {
@@ -328,7 +317,7 @@ var buildings = {
         {"url": "img/26.3.jpg"}],
       "lat": 1080,
       "longi": 1064,
-      "ymax": "",
+      "order": "25",
       "ymin": ""
     },
     {
@@ -342,7 +331,7 @@ var buildings = {
         {"url": "img/27.3.jpg"}],
       "lat": 1081,
       "longi": 1126,
-      "ymax": "",
+      "order": "26",
       "ymin": ""
     },
     {
@@ -353,7 +342,7 @@ var buildings = {
       "img": [{"url": "img/28.1.jpg"}],
       "lat": 115,
       "longi": 1283,
-      "ymax": "",
+      "order": "27",
       "ymin": ""
     },
     {
@@ -366,7 +355,7 @@ var buildings = {
         {"url": "img/29.2.jpg"}],
       "lat": 345,
       "longi": 1293,
-      "ymax": "",
+      "order": "28",
       "ymin": ""
     },
     {
@@ -379,7 +368,7 @@ var buildings = {
         {"url": "img/30.2.jpg"}],
       "lat": 492,
       "longi": 1367,
-      "ymax": "",
+      "order": "29",
       "ymin": ""
     },
     {
@@ -390,7 +379,7 @@ var buildings = {
       "img": [{"url": "img/31.1.jpg"}],
       "lat": 500,
       "longi": 1587,
-      "ymax": "",
+      "order": "30",
       "ymin": ""
     },
     {
@@ -401,7 +390,7 @@ var buildings = {
       "img": [{"url": "img/32.1.jpg"}],
       "lat": 620,
       "longi": 1400,
-      "ymax": "",
+      "order": "31",
       "ymin": ""
     },
     {
@@ -412,7 +401,7 @@ var buildings = {
       "img": [{"url": "img/33.1.jpg"}],
       "lat": 606,
       "longi": 1521,
-      "ymax": "",
+      "order": "32",
       "ymin": ""
     },
     {
@@ -423,7 +412,7 @@ var buildings = {
       "img": [{"url": "img/34.1.jpg"}],
       "lat": 606,
       "longi": 1569,
-      "ymax": "",
+      "order": "33",
       "ymin": ""
     },
     {
@@ -434,7 +423,7 @@ var buildings = {
       "img": [{"url": "img/35.1.jpg"}],
       "lat": 729,
       "longi": 1300,
-      "ymax": "",
+      "order": "34",
       "ymin": ""
     },
     {
@@ -445,7 +434,7 @@ var buildings = {
       "img": [{"url": "img/36.1.jpg"}],
       "lat": 729,
       "longi": 1300,
-      "ymax": "",
+      "order": "35",
       "ymin": ""
     },
     {
@@ -456,7 +445,7 @@ var buildings = {
       "img": [{"url": "img/37.1.jpg"}],
       "lat": 852,
       "longi": 1279,
-      "ymax": "",
+      "order": "36",
       "ymin": ""
     },
     {
@@ -470,7 +459,7 @@ var buildings = {
         {"url": "img/38.3.jpg"}],
       "lat": 871,
       "longi": 1368,
-      "ymax": "",
+      "order": "37",
       "ymin": ""
     },
     {
@@ -481,7 +470,7 @@ var buildings = {
       "img": [{"url": "img/39.1.jpg"}],
       "lat": 900,
       "longi": 1459,
-      "ymax": "",
+      "order": "38",
       "ymin": ""
     },
     {
@@ -492,7 +481,7 @@ var buildings = {
       "img": [{"url": "img/40.1.jpg"}],
       "lat": 879,
       "longi": 1578,
-      "ymax": "",
+      "order": "39",
       "ymin": ""
     },
     {
@@ -503,7 +492,7 @@ var buildings = {
       "img": [{"url": "img/41.1.png"}],
       "lat": 983,
       "longi": 1429,
-      "ymax": "",
+      "order": "40",
       "ymin": ""
     },
     {
@@ -516,7 +505,7 @@ var buildings = {
         {"url": "img/42.2.jpg"}],
       "lat": 1114,
       "longi": 1275,
-      "ymax": "",
+      "order": "41",
       "ymin": ""
     },
     {
@@ -527,7 +516,7 @@ var buildings = {
       "img": [{"url": "img/43.1.png"}],
       "lat": 1110,
       "longi": 1462,
-      "ymax": "",
+      "order": "42",
       "ymin": ""
     },
     {
@@ -538,7 +527,7 @@ var buildings = {
       "img": [{"url": "img/44.1.png"}],
       "lat": 500,
       "longi": 1679,
-      "ymax": "",
+      "order": "43",
       "ymin": ""
     },
     {
@@ -549,7 +538,7 @@ var buildings = {
       "img": [{"url": "img/45.1.jpg"}],
       "lat": 500,
       "longi": 1724,
-      "ymax": "",
+      "order": "44",
       "ymin": ""
     },
     {
@@ -560,7 +549,7 @@ var buildings = {
       "img": [{"url": "img/46.1.jpg"}],
       "lat": 500,
       "longi": 1800,
-      "ymax": "",
+      "order": "45",
       "ymin": ""
     },
     {
@@ -571,7 +560,7 @@ var buildings = {
       "img": [{"url": "img/47.1.png"}],
       "lat": 642,
       "longi": 1877,
-      "ymax": "",
+      "order": "46",
       "ymin": ""
     },
     {
@@ -582,7 +571,7 @@ var buildings = {
       "img": [{"url": "img/48.1.jpg"}],
       "lat": 623,
       "longi": 1951,
-      "ymax": "",
+      "order": "47",
       "ymin": ""
     },
     {
@@ -593,7 +582,7 @@ var buildings = {
       "img": [{"url": "img/49.1.jpg"}],
       "lat": 745,
       "longi": 1820,
-      "ymax": "",
+      "order": "48",
       "ymin": ""
     },
     {
@@ -604,7 +593,7 @@ var buildings = {
       "img": [{"url": "img/50.1.jpg"}],
       "lat": 878,
       "longi": 1688,
-      "ymax": "",
+      "order": "49",
       "ymin": ""
     },
     {
@@ -615,7 +604,7 @@ var buildings = {
       "img": [{"url": "img/51.1.jpg"}],
       "lat": 878,
       "longi": 1759,
-      "ymax": "",
+      "order": "50",
       "ymin": ""
     },
     {
@@ -628,8 +617,7 @@ var buildings = {
         {"url": "img/52.2.jpg"}],
       "lat": 860,
       "longi": 1874,
-      "ymax": "",
+      "order": "51",
       "ymin": ""
     }
   ]
-}

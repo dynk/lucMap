@@ -47,7 +47,7 @@
             result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
             for(var i=0; i<buildingsJson.length; i++) {
               // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
-              result += "<li><a  href = '#homePage' onClick = 'setCurrentBuilding("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+              result += "<li><a  href = '#homePage' onClick = 'setcurrentBuilding("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
               result += "</a></li>";
             }
             result +="</ul>";
@@ -62,11 +62,11 @@
       }
 
 
-    var total = createListBuilding(buildings.building,1);
+    var total = createListBuilding(buildings,1);
     document.getElementById('listBuilding').innerHTML = total;
-    var total2 = createListBuilding(buildings.building,2);
+    var total2 = createListBuilding(buildings,2);
     document.getElementById('listAllFavBuilding').innerHTML = total2;
-    var total4 = createListBuilding(buildings.building,4);
+    var total4 = createListBuilding(buildings,4);
     document.getElementById('listBuilding2').innerHTML = total4;
 
 
@@ -76,9 +76,9 @@
       window.location="#homePage";
     }
 
-    function renderBuildingPage(buildingId){
+    function renderBuildingPage(buildingOrder){
       hideMyPosition();
-      currentBuildingId = buildingId;
+      currentBuildingOrder = buildingOrder;
       $(":mobile-pagecontainer").pagecontainer("change", "buildings.html", {
         changeHash: true
       });
@@ -89,15 +89,15 @@
       });
       var fillss = "";
 
-      $("#buildingName").html(buildings.building[currentBuildingId].name);
+      $("#buildingName").html(buildings[currentBuildingOrder].name);
       $("#bximages").html("");
 
-      for (j in buildings.building[currentBuildingId].img){
-        $("#bximages").append("<li><img src="+ buildings.building[currentBuildingId].img[j].url + "></li>");
+      for (j in buildings[currentBuildingOrder].img){
+        $("#bximages").append("<li><img src="+ buildings[currentBuildingOrder].img[j].url + "></li>");
       }
 
       slider.reloadSlider();
-      $("#buildingDescription").html(buildings.building[currentBuildingId].description);
+      $("#buildingDescription").html(buildings[currentBuildingOrder].description);
       $("#deleteFavoriteBuilding").html(fillss);
 
 
@@ -110,11 +110,11 @@
       myPosition=[0,0];
       markerMyPosition.setOpacity(0);
     }
-    function setCurrentBuilding(id_building){
-      currentBuildingId = id_building;
+    function setcurrentBuilding(id_building){
+      currentBuildingOrder = id_building;
     }
-    function resetCurrentBuilding(){
-      currentBuildingId = 999;
+    function resetcurrentBuilding(){
+      currentBuildingOrder = 999;
     }
 
 
@@ -130,14 +130,15 @@
     function sortListFunction(buildingsJson){
       var ordenationAux = [];
         for(var i=0; i<buildingsJson.length; i++) {
-          ordenationAux.push([buildingsJson[i].name, buildingsJson[i].id])
+          ordenationAux.push([buildingsJson[i].name, buildingsJson[i].order])
         }
         return ordenationAux.sort(sortFunction);
     }
 
     function saveBuilding(id) {
       if (id != null) {
-        window.localStorage.setItem(id, buildings.building[id].name);
+        var realId = id - 1;
+        window.localStorage.setItem(realId, buildings[realId].name);
       }
       renderFavPage();
     }
@@ -219,4 +220,4 @@
   });
 
 })();
-    
+

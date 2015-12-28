@@ -6,9 +6,9 @@ $(document).on('pageshow','#homePage', function(){
 
 	console.log('pageshow');
 	$.mobile.activePage.find('.map').leaflet();
-	if(currentBuildingId != 999){
-		markers[currentBuildingId].openPopup();
-		currentBuildingId = 999;
+	if(currentBuildingOrder != 999){
+		markers[currentBuildingOrder].openPopup();
+		currentBuildingOrder = 999;
 	}
 
 });
