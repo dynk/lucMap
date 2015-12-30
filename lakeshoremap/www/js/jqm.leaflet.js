@@ -8,7 +8,7 @@
  * This plugin requires the jQuery-, jQuery-Mobile & the Leaflet-Library
  *
  */
-(function testss($) {
+(function($) {
 	$.widget( "mobile.leaflet", $.mobile.widget, {
 		options: {
 			//Determin if the attribution label for leaflet should be displayed
@@ -72,10 +72,10 @@
 			self.map.map.setMaxBounds(bounds);	
 	
 
-
+			// Icon that is gonna be used on markers
 			 var buildingIcon = L.icon({
     			iconUrl: 'img/icons/building.png',
-    			iconSize:     [30, 30] // size of the icon
+    			iconSize:     [40, 40] // size of the icon
 			});
 
 			
@@ -132,9 +132,11 @@
   			// var calibPosition2=coord2leaflet(41.9975592,-87.657218);	
   			// var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
   			// var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
-  			L.easyButton('fa-location-arrow', function(){ navigator.geolocation.getCurrentPosition(locationOnSuccess,
+  		//My location button 
+  		// L.easyButton('fa-location-arrow', function(){ navigator.geolocation.getCurrentPosition(locationOnSuccess,
+  		L.easyButton('fa-location-arrow', function(){ navigator.geolocation.watchPosition(locationOnSuccess,
           locationOnFail, {
-          timeout: 15000,
+          timeout: 30000,
           enableHighAccuracy: true
         });}).addTo(self.map.map);
 

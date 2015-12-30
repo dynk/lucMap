@@ -11,8 +11,8 @@
 
 
 				// testing
-				myFinalPosition[0] = -50;
-				myFinalPosition[1] = 90;
+				// myFinalPosition[0] = -50;
+				// myFinalPosition[1] = 90;
 
 				markerMyPosition.setLatLng(myFinalPosition).update();
       			markerMyPosition.setOpacity(1);
@@ -26,9 +26,9 @@
 			}
 
 			function getLocation() {
-				navigator.geolocation.getCurrentPosition(locationOnSuccess,
+				navigator.geolocation.watchPosition(locationOnSuccess,
 					locationOnFail, {
-					timeout: 15000,
+					timeout: 30000,
 					enableHighAccuracy: true
 				});
 			}
