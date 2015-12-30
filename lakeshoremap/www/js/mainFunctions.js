@@ -21,7 +21,7 @@
           case 2:
             var ordenationAux = sortListFunction(buildingsJson);
             var result = "";
-            result += "<ul id='searchBar2' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+            result += "<ul id='searchBar2' data-role= 'listview'> ";
             for(var i=0; i<buildingsJson.length; i++) {
               // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
               result += "<li><a href = '#pageFavBuildings' onClick = 'saveBuilding("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
@@ -136,10 +136,9 @@
         return ordenationAux.sort(sortFunction);
     }
 
-    function saveBuilding(id) {
-      if (id != null) {
-        var realId = id - 1;
-        window.localStorage.setItem(realId, buildings[realId].name);
+    function saveBuilding(order) {
+      if (order != null) {
+        window.localStorage.setItem(order, buildings[order].name);
       }
       renderFavPage();
     }
