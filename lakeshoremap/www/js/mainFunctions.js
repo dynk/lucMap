@@ -76,6 +76,28 @@
       window.location="#homePage";
     }
 
+    function toggleFavorite() {
+      if (isFavorite(currentBuildingOrder)) {
+        removeFavorite(currentBuildingOrder);
+        $("#fav-building").removeClass("fa-star");
+        $("#fav-building").addClass("fa-star-o");
+      } else {
+        addFavorite(currentBuildingOrder);
+        $("#fav-building").removeClass("fa-star-o");
+        $("#fav-building").addClass("fa-star");
+      }
+    }
+
+    function setFavorite() {
+      if (isFavorite(currentBuildingOrder)) {
+        $("#fav-building").removeClass("fa-star-o");
+        $("#fav-building").addClass("fa-star");
+      } else {
+        $("#fav-building").removeClass("fa-star");
+        $("#fav-building").addClass("fa-star-o");
+      }
+    }
+
     function renderBuildingPage(buildingOrder){
       hideMyPosition();
       currentBuildingOrder = buildingOrder;
@@ -143,13 +165,27 @@
       renderFavPage();
     }
 
-    function getAllSavedBuildings() {
-      if (window.localStorage.length == 0) {
-        return 0;
+    function isFavorite(order) {
+      if (localStorage.getItem(order) == null) {
+        return false;
+      } else {
+        return true;
       }
+    }
+
+    function addFavorite(order) {
+      localStorage.setItem(order, buildings[order].name);
+    }
+
+    function removeFavorite(order) {
+      localStorage.removeItem(order); 
+    }
+
+    function getAllSavedBuildings() {
+
       var result = [];
-      for(var i=0; i<window.localStorage.length; i++) {
-          result.push(window.localStorage.key(i))
+      for(var key in localStorage) {
+          result.push([key , localStorage.getItem(key)])
       }
       return result;
     }
@@ -160,22 +196,15 @@
       favBuildingFlag = true;
 
       var favBuildings = getAllSavedBuildings();
-      if(favBuildings == 0){
+      if(favBuildings.length == 0){
         $("#listViewFavBuilding").html("No building added...");
       } else{
-        var aux = [];
 
-        for(var key in localStorage) {
-          aux.push([key , localStorage.getItem(key)]);
-        }
-
-
-        var result = createListBuilding(aux,3);
+        var result = createListBuilding(favBuildings,3);
 
         $("#listViewFavBuilding").html(result);
         $("#listViewFavBuilding").listview().listview('refresh');
-
-        
+       
       }
 
     }
@@ -220,4 +249,10 @@
   });
 
 })();
+
+jQuery(document).ready( function(){
+
+  setFavorite();
+
+});
 

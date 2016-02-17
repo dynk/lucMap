@@ -13,4 +13,9 @@ $(document).on('pageshow','#homePage', function(){
 	}
 
 });
+$(document).on('pageshow','#buildings', function(){
+
+	setFavorite();
+
+});
 
