@@ -18,6 +18,7 @@
 				// zoomControl: false,
   				minZoom: 1,
   				maxZoom: 4,
+  				zoomControl:false,
   				center: [0, 0],
   				zoom: 1,
   				crs: L.CRS.Simple

@@ -19,3 +19,10 @@ $(document).on('pageshow','#buildings', function(){
 
 });
 
+$(document).on('pageshow','#pageFavBuildings', function(){
+
+	renderFavPage();
+
+});
+
+
