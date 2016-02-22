@@ -73,6 +73,7 @@
     // change to home page and hide your position
     function showBuilding(){
       hideMyPosition();
+      currentBuildingFlag = true;
       window.location="#homePage";
     }
 

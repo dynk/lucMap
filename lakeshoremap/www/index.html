@@ -3,18 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TDT</title>
+  <title>LakeShore Map</title>
   <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/leaflet.css" />
   <link rel="stylesheet" href="css/easybutton.css" />
-  <!-- <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' /> -->
-
   <script src="js/leaflet/leaflet.js"></script>
-  <!-- <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script> -->
   <script type="text/javascript" src="json/buildings.json"></script>
   <script type="text/javascript" src="js/index.js"></script>
   <script src="js/jquery-1.11.3.min.js"></script>
-  <!--  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script> -->
   <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
   <link rel="stylesheet" href="css/main.css">
   <link href="css/jquery.bxslider.css" rel="stylesheet" />
@@ -59,15 +55,13 @@
       <div data-role="header">
         <a href="#pageListBuilding2" onClick = "hideMyPosition()" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a>
         <a href="#leftpanel" onClick = "hideMyPosition()" class="ui-btn ui-btn-left"><i class="fa fa-bars"></i></a>
-        <!-- <a href="#pageListBuilding" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a> -->
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
-        <!-- <a href="#" class="ui-btn ui-btn-rigt wow fadeIn" data-wow-delay='1.2s'><i class="zmdi"></i></a> -->
       </div>
     </div>
 
 
   <div data-role="content" class="map"  id="map1_1" >
-  </div><!-- /content -->
+  </div>
 
   <div data-role="panel" data-display="overlay" id="bars" >
     <ul data-role="listview">
@@ -75,7 +69,7 @@
         <li> <a  id = "getLocation" >Where am I?</a></li>
     </ul>
       
-  </div><!-- /panel -->
+  </div>
 
 
 </div>
@@ -86,13 +80,11 @@
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
       </div>
   <div role="main" class="content" id = "listBuilding">
-<!--     <div id = "listBuilding">
-    </div>
-     -->
-  </div><!-- /content -->
+
+  </div>
   <div data-role="footer" data-position="fixed"> 
-  </div><!-- /footer -->
-</div><!-- /page2 -->
+  </div>
+</div>
 
 <div data-role="page" id="pageListBuilding2">
       <div data-role="header">
@@ -100,32 +92,23 @@
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
       </div>
   <div role="main" class="content" id = "listBuilding2">
-<!--     <div id = "listBuilding">
-    </div>
-     -->
-  </div><!-- /content -->
+
+  </div>
   <div data-role="footer" data-position="fixed"> 
-  </div><!-- /footer -->
-</div><!-- /page2 -->
+  </div>
+</div>
 
 <div data-role="page" id="pageFavAllBuildings">
       <div data-role="header">
-        <!-- <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a> -->
         <a href = "#pageFavBuildings" onClick = "renderFavPage()" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
         <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
       </div>
   <div role="main" class="content" id = "listAllFavBuilding">
-<!--     <div id = "listBuilding">
-    </div>
-     -->
-  </div><!-- /content -->
+  </div>
   <div data-role="footer" data-position="fixed"> 
-  </div><!-- /footer -->
+  </div>
 </div>
 
-
-
-<!-- <iframe src="pageFavBuildings.html"></iframe> -->
 
 <div data-role="page" id="pageFavBuildings">
       <div data-role="header">

@@ -7,10 +7,11 @@ $(document).on('pageshow','#homePage', function(){
 	console.log('pageshow');
 	$.mobile.activePage.find('.map').leaflet();
 	// open building pop up if any other pages set it
-	if(currentBuildingOrder != 999){
+	if(currentBuildingFlag == true){
 		markers[currentBuildingOrder].openPopup();
-		currentBuildingOrder = 999;
+		currentBuildingFlag = false;
 	}
+		currentBuildingOrder = 999;
 
 });
 $(document).on('pageshow','#buildings', function(){

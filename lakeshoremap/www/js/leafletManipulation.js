@@ -6,8 +6,9 @@
   // size of the loyola map PICTURE
   var mapWidth = 1350;
   var mapHeight = 2144;
-  // 999 indica q nenhum popup teve que ser aberto
+  // 999 means no current building selected
   var currentBuildingOrder = 999;
+  var currentBuildingFlag = false;
   var myPosition=[0,0];
   var markerMyPosition;
   var markers = [];
