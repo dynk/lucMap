@@ -115,16 +115,13 @@
         //device's longitude
         myPosition[1] = location.coords.longitude;
 
-        // testing
-        var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
-        markerMyPosition.setLatLng(myFinalPosition).update();
-            markerMyPosition.setOpacity(1);
-            markerMyPosition.openPopup();
 
+        verifyMyPosition();
+        
       }
 
       function locationOnFail(error) {
-        console.log("error trying to find location!")
+        console.log("Error trying to find location!")
       }
 
 
@@ -135,11 +132,65 @@
   			// var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
   		//My location button 
   		// L.easyButton('fa-location-arrow', function(){ navigator.geolocation.getCurrentPosition(locationOnSuccess,
-  		L.easyButton('fa-location-arrow', function(){ navigator.geolocation.watchPosition(locationOnSuccess,
-          locationOnFail, {
+  		var watchID = null;
+  		var openPopUpOnceFlag = true;
+  		var optionsWatchPosition = {
           timeout: 30000,
           enableHighAccuracy: true
-        });}).addTo(self.map.map);
+        };
+
+      	function clearWatch() {
+        	if (watchID != null) {
+            	navigator.geolocation.clearWatch(watchID);
+            	watchID = null;
+            	markerMyPosition.setOpacity(0);
+            	openPopUpOnceFlag = true;
+        	}
+    	}
+    	function startWatch() {
+			watchID = navigator.geolocation.watchPosition(locationOnSuccess, locationOnFail, optionsWatchPosition);
+    	}
+    	function verifyMyPosition() {
+        		var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1]);
+        		//testing
+        		// var myFinalPosition = pixel2leaflet(Math.floor((Math.random() * 1000) + 80),Math.floor((Math.random() * 1500) + 50));
+
+        		if(isInsideCampus(myFinalPosition)){
+        			markerMyPosition.setLatLng(myFinalPosition).update();
+            		markerMyPosition.setOpacity(1);
+            		if(openPopUpOnceFlag){
+            			markerMyPosition.openPopup();
+            			openPopUpOnceFlag = false;
+            		}
+            		
+        		}else{
+        			alert("You are not on Campus...");
+        			clearWatch();
+        		}
+    	}
+
+  		function findMyPosition() {
+  			//prevents to open more than one popup per time
+  			self.map.map.closePopup();
+  			if (watchID == null) {
+  				openPopUpOnceFlag = true;
+        		startWatch();
+        	}else{
+        		markerMyPosition.openPopup();
+        		openPopUpOnceFlag = false;
+        	}
+      	}
+
+
+  		// L.easyButton('fa-location-arrow', function(){ navigator.geolocation.watchPosition(locationOnSuccess,
+    //       locationOnFail, {
+    //       timeout: 30000,
+    //       enableHighAccuracy: true
+    //     });}).addTo(self.map.map);
+
+  		L.easyButton('fa-location-arrow', findMyPosition).addTo(self.map.map);
+
+  		//Centralize any marker to the map, including buildings and my position
 		self.map.map.on('popupopen', function(e) {
     		var px = self.map.map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
     		px.y -= e.popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location

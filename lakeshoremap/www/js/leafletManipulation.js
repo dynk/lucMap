@@ -52,3 +52,16 @@
 
     return [(alpha_lat_google*(x-lat1_google)+lat1_leaf2 ),(alpha_long_google*(y-long1_google)+long1_leaf2 )]
   }
+
+    function isInsideCampus(x,y){
+    // calibration
+    var lat_min_border_pixel = 74,
+        long_min_border_pixel = 40,
+        lat_max_border_pixel = 1200,
+        long_max_border_pixel = 2000;
+
+
+    return true;
+  }
+
+
