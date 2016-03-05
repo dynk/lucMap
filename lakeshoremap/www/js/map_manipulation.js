@@ -7,7 +7,7 @@
             west: -87.6618519
          };
          
-      L.mapbox.accessToken = 'pk.eyJ1IjoiZHluayIsImEiOiJjaWdzZzRzeWIwMnk3dXhtMTUyeHBydXAzIn0.82RrkarfhuGM-2RAI_oRhw';
+      // L.mapbox.accessToken = 'pk.eyJ1IjoiZHluayIsImEiOiJjaWdzZzRzeWIwMnk3dXhtMTUyeHBydXAzIn0.82RrkarfhuGM-2RAI_oRhw';
 
          var imageUrl = 'img/lsc.jpg',
     // This is the trickiest part - you'll need accurate coordinates for the
