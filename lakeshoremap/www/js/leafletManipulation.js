@@ -53,15 +53,25 @@
     return [(alpha_lat_google*(x-lat1_google)+lat1_leaf2 ),(alpha_long_google*(y-long1_google)+long1_leaf2 )]
   }
 
-    function isInsideCampus(x,y){
-    // calibration
-    var lat_min_border_pixel = 74,
-        long_min_border_pixel = 40,
-        lat_max_border_pixel = 1200,
-        long_max_border_pixel = 2000;
+    function isInsideCampus(coord){
+      // coord - gps coordinates
+      // calibration
+      var lat_min_pixel = 74,
+        long_min_pixel = 40,
+        lat_max_pixel = 1200,
+        long_max_pixel = 2000;
+
+      var isInsideLat = false,
+          isInsideLong = false;
+        
+      var actualPosLeaf = coord;
+      var minPosLeaflet = pixel2leaflet(lat_min_pixel,long_min_pixel);
+      var maxPosLeaflet = pixel2leaflet(lat_max_pixel,long_max_pixel); 
+      isInsideLat = (actualPosLeaf[0] < minPosLeaflet[0]) && (actualPosLeaf[0] > maxPosLeaflet[0]);
+      isInsideLong = (actualPosLeaf[1] > minPosLeaflet[1]) && (actualPosLeaf[1] < maxPosLeaflet[1]);
 
 
-    return true;
-  }
+      return isInsideLat&&isInsideLong;
+    }
 
 

@@ -115,6 +115,9 @@
         //device's longitude
         myPosition[1] = location.coords.longitude;
 
+        // test
+        // myPosition[0] = 41.9948045;
+        // myPosition[1] = -87.6551606;
 
         verifyMyPosition();
         
@@ -135,7 +138,7 @@
   		var watchID = null;
   		var openPopUpOnceFlag = true;
   		var optionsWatchPosition = {
-          timeout: 30000,
+          timeout: 60000,
           enableHighAccuracy: true
         };
 
@@ -151,6 +154,7 @@
 			watchID = navigator.geolocation.watchPosition(locationOnSuccess, locationOnFail, optionsWatchPosition);
     	}
     	function verifyMyPosition() {
+
         		var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1]);
         		//testing
         		// var myFinalPosition = pixel2leaflet(Math.floor((Math.random() * 1000) + 80),Math.floor((Math.random() * 1500) + 50));
@@ -161,6 +165,8 @@
             		if(openPopUpOnceFlag){
             			markerMyPosition.openPopup();
             			openPopUpOnceFlag = false;
+            			closePopUpDelay();
+            			// alert("test");
             		}
             		
         		}else{
@@ -177,9 +183,13 @@
         		startWatch();
         	}else{
         		markerMyPosition.openPopup();
+        		closePopUpDelay();
         		openPopUpOnceFlag = false;
         	}
       	}
+      	function closePopUpDelay() {
+    		setTimeout(function(){ self.map.map.closePopup(); }, 3000);
+		}
 
 
   		// L.easyButton('fa-location-arrow', function(){ navigator.geolocation.watchPosition(locationOnSuccess,
