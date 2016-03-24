@@ -3,38 +3,38 @@
 // opcode = 2 - favorite buildings
 // opcode = 3 - favorite buildings
 // opcode = 4 - search building
-function createListBuilding(buildingsJson,opCode) {
+function createListBuilding(buildingsJson, opCode) {
 
-    switch(opCode) {
+    switch (opCode) {
         case 1:
             var ordenationAux = sortListFunction(buildingsJson);
             var result = "";
-            result += "<ul id='searchBar' data-role= 'listview'> ";
-            for(var i=0; i<buildingsJson.length; i++) {
+            result += "<ul id='searchBar' data-role='listview'> ";
+            for (var i = 0; i < buildingsJson.length; i++) {
                 // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
-                result += "<li><a onClick = 'renderBuildingPage("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+                result += "<li><a onClick='renderBuildingPage(" + ordenationAux[i][1] + ")'>" + ordenationAux[i][0];
                 result += "</a></li>";
             }
-            result +="</ul>";
+            result += "</ul>";
             break;
 
         case 2:
             var ordenationAux = sortListFunction(buildingsJson);
             var result = "";
-            result += "<ul id='searchBar2' data-role= 'listview'> ";
-            for(var i=0; i<buildingsJson.length; i++) {
+            result += "<ul id='searchBar2' data-role='listview'> ";
+            for (var i = 0; i < buildingsJson.length; i++) {
                 // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
-                result += "<li><a href = '#pageFavBuildings' onClick = 'saveBuilding("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+                result += "<li><a href='#pageFavBuildings' onClick='saveBuilding(" + ordenationAux[i][1] + ")'>" + ordenationAux[i][0];
                 result += "</a></li>";
             }
-            result +="</ul>";
+            result += "</ul>";
             break;
 
         case 3:
             var result = "";
             // result += "<ul id='listViewFavBuilding' data-role= 'listview'> ";
-            for(var i=0; i<buildingsJson.length; i++) {
-                result += "<li><a onClick = 'renderBuildingPage("+buildingsJson[i][0]+")'>"+ buildingsJson[i][1];
+            for (var i = 0; i < buildingsJson.length; i++) {
+                result += "<li><a onClick='renderBuildingPage(" + buildingsJson[i][0] + ")'>" + buildingsJson[i][1];
                 result += "</a></li>";
             }
             break;
@@ -42,13 +42,13 @@ function createListBuilding(buildingsJson,opCode) {
         case 4:
             var ordenationAux = sortListFunction(buildingsJson);
             var result = "";
-            result += "<ul id='searchBar' data-role= 'listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
-            for(var i=0; i<buildingsJson.length; i++) {
+            result += "<ul id='searchBar' data-role='listview' data-filter='true' data-filter-placeholder='Search buildings...'> ";
+            for (var i = 0; i < buildingsJson.length; i++) {
                 // result += "<li><a onClick = 'renderBuildingPage("+i+")'>"+ buildingsJson[i].name;
-                result += "<li><a  href = '#homePage' onClick = 'setcurrentBuilding("+ordenationAux[i][1]+")'>"+ ordenationAux[i][0];
+                result += "<li><a href='#homePage' onClick='setcurrentBuilding(" + ordenationAux[i][1] + ")'>" + ordenationAux[i][0];
                 result += "</a></li>";
             }
-            result +="</ul>";
+            result += "</ul>";
             break;
 
         default:
@@ -58,18 +58,18 @@ function createListBuilding(buildingsJson,opCode) {
     return result;
 }
 
-var total = createListBuilding(buildings,1);
+var total = createListBuilding(buildings, 1);
 document.getElementById('listBuilding').innerHTML = total;
-var total2 = createListBuilding(buildings,2);
+var total2 = createListBuilding(buildings, 2);
 document.getElementById('listAllFavBuilding').innerHTML = total2;
-var total4 = createListBuilding(buildings,4);
+var total4 = createListBuilding(buildings, 4);
 document.getElementById('listBuilding2').innerHTML = total4;
 
 // change to home page and hide your position
-function showBuilding(){
+function showBuilding() {
     hideMyPosition();
     currentBuildingFlag = true;
-    window.location="#homePage";
+    window.location = "#homePage";
 }
 
 function toggleFavorite() {
@@ -94,7 +94,7 @@ function setFavorite() {
     }
 }
 
-function renderBuildingPage(buildingOrder){
+function renderBuildingPage(buildingOrder) {
     hideMyPosition();
     currentBuildingOrder = buildingOrder;
     $(":mobile-pagecontainer").pagecontainer("change", "buildings.html", {
@@ -102,7 +102,7 @@ function renderBuildingPage(buildingOrder){
     });
 }
 
-$(document).on("pageshow", "#buildings", function( event ) {
+$(document).on("pageshow", "#buildings", function (event) {
     var slider = $('.bxslider').bxSlider({
         autoControls: true
     });
@@ -111,8 +111,8 @@ $(document).on("pageshow", "#buildings", function( event ) {
     $("#buildingName").html(buildings[currentBuildingOrder].name);
     $("#bximages").html("");
 
-    for (j in buildings[currentBuildingOrder].img){
-        $("#bximages").append("<li><img src="+ buildings[currentBuildingOrder].img[j].url + "></li>");
+    for (j in buildings[currentBuildingOrder].img) {
+        $("#bximages").append("<li><img src=" + buildings[currentBuildingOrder].img[j].url + "></li>");
     }
 
     slider.reloadSlider();
@@ -121,16 +121,16 @@ $(document).on("pageshow", "#buildings", function( event ) {
     $("#deleteFavoriteBuilding").html(fillss);
 });
 
-function hideMyPosition(){
-    myPosition=[0,0];
+function hideMyPosition() {
+    myPosition=[0, 0];
     markerMyPosition.setOpacity(0);
 }
 
-function setcurrentBuilding(id_building){
+function setcurrentBuilding(id_building) {
     currentBuildingOrder = id_building;
 }
 
-function resetcurrentBuilding(){
+function resetcurrentBuilding() {
     currentBuildingOrder = 999;
 }
 
@@ -142,9 +142,9 @@ function sortFunction(a, b) {
     }
 }
 
-function sortListFunction(buildingsJson){
+function sortListFunction(buildingsJson) {
     var ordenationAux = [];
-    for(var i=0; i<buildingsJson.length; i++) {
+    for (var i = 0; i < buildingsJson.length; i++) {
         ordenationAux.push([buildingsJson[i].name, buildingsJson[i].order])
     }
     return ordenationAux.sort(sortFunction);
@@ -175,33 +175,33 @@ function removeFavorite(order) {
 
 function getAllSavedBuildings() {
     var result = [];
-    for(var key in localStorage) {
-        result.push([key , localStorage.getItem(key)])
+    for (var key in localStorage) {
+        result.push([key, localStorage.getItem(key)])
     }
     return result;
 }
 
-function renderFavPage(){
+function renderFavPage() {
     favBuildingFlag = true;
 
     var favBuildings = getAllSavedBuildings();
-    if(favBuildings.length == 0){
+    if (favBuildings.length == 0) {
         $("#listViewFavBuilding").html("No building added...");
     } else {
-        var result = createListBuilding(favBuildings,3);
+        var result = createListBuilding(favBuildings, 3);
 
         $("#listViewFavBuilding").html(result);
         $("#listViewFavBuilding").listview().listview('refresh');
     }
 }
 
-function deleteAllFavBuilding(){
+function deleteAllFavBuilding() {
     localStorage.clear();
     renderFavPage();
 }
 
-function toggleMarkers(){
-    if(markersOpacity == 0){
+function toggleMarkers() {
+    if (markersOpacity == 0) {
         markersOpacity = 1;
     } else {
         markersOpacity = 0;
@@ -212,7 +212,7 @@ function toggleMarkers(){
 }
 
 (function() {
-    $(document).on("pageinit", "#homePage", function(e) {
+    $(document).on("pageinit", "#homePage", function (e) {
         //prevent any bound defaults
         e.preventDefault();
 
@@ -220,10 +220,10 @@ function toggleMarkers(){
         function onDeviceReady() {
 
             //handle button press for geolocation
-            $("#getLocation").on("tap", function(e) {
+            $("#getLocation").on("tap", function (e) {
                 e.preventDefault();
                 getLocation();
-                $( "#leftpanel" ).panel( "close" );
+                $("#leftpanel").panel("close");
             })
         }
         //as deviceready returns load onDeviceReady()
@@ -231,6 +231,6 @@ function toggleMarkers(){
     });
 })();
 
-jQuery(document).ready( function(){
+jQuery(document).ready(function () {
   setFavorite();
 });

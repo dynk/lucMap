@@ -36,12 +36,12 @@
             padding: 0px
         }
 
-        .map{
-            /*width:530px;*/
-            /*height:330px;*/
-            width:100%;
+        .map {
+            /*width: 530px;*/
+            /*height: 330px;*/
+            width: 100%;
             height: calc(100% - 90px);
-            margin:0 auto;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -50,19 +50,19 @@
         <div class="headerMenu">
             <nd2-include data-src="panel.left.html"></nd2-include>
             <div data-role="header">
-                <a href="#pageListBuilding2" onClick = "hideMyPosition()" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a>
-                <a href="#leftpanel" onClick = "hideMyPosition()" class="ui-btn ui-btn-left"><i class="fa fa-bars"></i></a>
+                <a href="#pageListBuilding2" onClick="hideMyPosition()" class="ui-btn ui-btn-right"><i class="fa fa-search"></i></a>
+                <a href="#leftpanel" onClick="hideMyPosition()" class="ui-btn ui-btn-left"><i class="fa fa-bars"></i></a>
                 <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
             </div>
         </div>
 
-        <div data-role="content" class="map"  id="map1_1" >
+        <div data-role="content" class="map" id="map1_1" >
         </div>
 
         <div data-role="panel" data-display="overlay" id="bars" >
             <ul data-role="listview">
-                <li> <a href = "#pageListBuilding">List of Buildings</a></li>
-                <li> <a  id = "getLocation" >Where am I?</a></li>
+                <li> <a href="#pageListBuilding">List of Buildings</a></li>
+                <li> <a id="getLocation">Where am I?</a></li>
             </ul>
         </div>
     </div>
@@ -73,7 +73,7 @@
             <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
         </div>
 
-        <div role="main" class="content" id = "listBuilding">
+        <div role="main" class="content" id="listBuilding">
         </div>
 
         <div data-role="footer" data-position="fixed">
@@ -86,7 +86,7 @@
             <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
         </div>
 
-        <div role="main" class="content" id = "listBuilding2">
+        <div role="main" class="content" id="listBuilding2">
         </div>
 
         <div data-role="footer" data-position="fixed">
@@ -95,11 +95,11 @@
 
     <div data-role="page" id="pageFavAllBuildings">
         <div data-role="header">
-            <a href = "#pageFavBuildings" onClick = "renderFavPage()" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
+            <a href="#pageFavBuildings" onClick="renderFavPage()" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
             <h1 class="wow fadeIn" data-wow-delay='0.4s'>Loyola Map</h1>
         </div>
 
-        <div role="main" class="content" id = "listAllFavBuilding">
+        <div role="main" class="content" id="listAllFavBuilding">
         </div>
 
         <div data-role="footer" data-position="fixed">
@@ -108,12 +108,12 @@
 
     <div data-role="page" id="pageFavBuildings">
         <div data-role="header">
-            <a href = "#homePage" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
+            <a href="#homePage" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
             <h1 class="wow fadeIn" data-wow-delay='0.4s'>Favorites</h1>
         </div>
 
-        <div role="main" class="content" id = "listFavBuilding">
-            <ul id='listViewFavBuilding' data-role= 'listview'>
+        <div role="main" class="content" id="listFavBuilding">
+            <ul id='listViewFavBuilding' data-role='listview'>
             </u1>
         </div>
 

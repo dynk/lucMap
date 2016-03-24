@@ -26,7 +26,7 @@
         <nd2-include data-src="panel.left.html"></nd2-include>
         <div data-role="header">
             <a data-rel="back" class="ui-btn ui-btn-left"><i class="fa fa-arrow-left"></i></a>
-            <a onClick = "showBuilding()" class="ui-btn ui-btn-right"><i class="fa fa-map-marker"></i></a>
+            <a onClick="showBuilding()" class="ui-btn ui-btn-right"><i class="fa fa-map-marker"></i></a>
             <h2 id="buildingName"></h2>
         </div>
         <div data-role="main" class="ui-content">
@@ -44,17 +44,16 @@
         </div>
 
         <div data-role="footer" >
-            <div id = "deleteFavoriteBuilding" ></div>
+            <div id="deleteFavoriteBuilding" ></div>
         </div>
     </div>
 
     <script>
-        document.addEventListener("backbutton", function(e){
-            if($.mobile.activePage.is('#home')){
+        document.addEventListener("backbutton", function (e) {
+            if ($.mobile.activePage.is('#home')) {
                 e.preventDefault();
                 navigator.app.exitApp();
-            }
-            else {
+            } else {
                 navigator.app.backHistory()
             }
         }, false);

@@ -5,7 +5,7 @@ function locationOnSuccess(location) {
     //device's longitude
     myPosition[1] = location.coords.longitude;
 
-    var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1])
+    var myFinalPosition = coord2leaflet(myPosition[0], myPosition[1])
 
     // testing
     // myFinalPosition[0] = -50;

@@ -1,13 +1,13 @@
-$(document).on('mobileinit', function(){
+$(document).on('mobileinit', function () {
     console.log('mobileinit');
 });
 
-$(document).on('pageshow','#homePage', function(){
+$(document).on('pageshow','#homePage', function () {
 
     console.log('pageshow');
     $.mobile.activePage.find('.map').leaflet();
     // open building pop up if any other pages set it
-    if(currentBuildingFlag == true){
+    if (currentBuildingFlag == true) {
         markers[currentBuildingOrder].openPopup();
         currentBuildingFlag = false;
     }
@@ -15,10 +15,10 @@ $(document).on('pageshow','#homePage', function(){
 
 });
 
-$(document).on('pageshow','#buildings', function(){
+$(document).on('pageshow','#buildings', function () {
     setFavorite();
 });
 
-$(document).on('pageshow','#pageFavBuildings', function(){
+$(document).on('pageshow','#pageFavBuildings', function () {
     renderFavPage();
 });
