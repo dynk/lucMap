@@ -186,7 +186,12 @@ function renderFavPage() {
 
     var favBuildings = getAllSavedBuildings();
     if (favBuildings.length == 0) {
-        $("#listViewFavBuilding").html("No building added...");
+        var noBuildingMessage = "No Favorites Stored<br /><br />" +
+                                "It looks like you haven't added any " +
+                                "buildings to your Favorites yet! When you " +
+                                "look up a building, tap the star icon to " +
+                                "save your building for easy access later.";
+        $("#listViewFavBuilding").html(noBuildingMessage);
     } else {
         var result = createListBuilding(favBuildings, 3);
 
