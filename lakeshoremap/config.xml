@@ -2,12 +2,18 @@
 <widget id="edu.loyola.map" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>loyolamap</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        App that shows the Loyola University Lakeshore Campus Map. You can see the buildings and find more information about each one.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="" href="http://cordova.io">
         Apache Cordova Team
     </author>
     <content src="index.html" />
+<!-- Default application icon -->
+<icon src="www/img/icon.png" />
+<icon src="www/img/icon.png" platform="android" density="ldpi" />
+<icon src="www/img/icon.png" platform="android" density="mdpi" />
+<icon src="www/img/icon.png" platform="android" density="hdpi" />
+<icon src="www/img/icon.png" platform="android" density="xhdpi" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
