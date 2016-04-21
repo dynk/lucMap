@@ -117,8 +117,8 @@
 
       function locationOnFail(error) {
 		  clearWatch();
-		  alert("Error trying to find location!");
-        console.log("Error trying to find location! Try to enable GPS")
+		  alert("Error trying to find location! Try to enable GPS for this App");
+        console.log("Error trying to find location!")
       }
 
 

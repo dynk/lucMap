@@ -127,6 +127,7 @@ function hideMyPosition() {
 }
 
 function setcurrentBuilding(id_building) {
+    currentBuildingFlag = true;
     currentBuildingOrder = id_building;
 }
 
