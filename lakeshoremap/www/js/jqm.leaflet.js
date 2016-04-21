@@ -103,11 +103,6 @@
   			markerMyPosition.addTo(self.map.map);
   			markerMyPosition.setOpacity(0);
 
-
-  			var locationIcon2 = L.icon({
-    			iconUrl: 'img/icons/location.png',
-    			iconSize:     [10, 15] // size of the icon
-			});
 		function locationOnSuccess(location) {
 
         //device's latitude
@@ -115,26 +110,18 @@
         //device's longitude
         myPosition[1] = location.coords.longitude;
 
-        // test
-        // myPosition[0] = 41.9948045;
-        // myPosition[1] = -87.6551606;
 
         verifyMyPosition();
         
       }
 
       function locationOnFail(error) {
-        console.log("Error trying to find location!")
+		  clearWatch();
+		  alert("Error trying to find location!");
+        console.log("Error trying to find location! Try to enable GPS")
       }
 
 
-			
-  			// var calibPosition1=coord2leaflet(41.999183,-87.6573519);
-  			// var calibPosition2=coord2leaflet(41.9975592,-87.657218);	
-  			// var markerCalibration1 = L.marker(calibPosition1,{icon: locationIcon2}).addTo(self.map.map);
-  			// var markerCalibration2 = L.marker(calibPosition2,{icon: locationIcon2}).addTo(self.map.map);
-  		//My location button 
-  		// L.easyButton('fa-location-arrow', function(){ navigator.geolocation.getCurrentPosition(locationOnSuccess,
   		var watchID = null;
   		var openPopUpOnceFlag = true;
   		var optionsWatchPosition = {
@@ -156,8 +143,6 @@
     	function verifyMyPosition() {
 
         		var myFinalPosition = coord2leaflet(myPosition[0],myPosition[1]);
-        		//testing
-        		// var myFinalPosition = pixel2leaflet(Math.floor((Math.random() * 1000) + 80),Math.floor((Math.random() * 1500) + 50));
 
         		if(isInsideCampus(myFinalPosition)){
         			markerMyPosition.setLatLng(myFinalPosition).update();
@@ -166,7 +151,6 @@
             			markerMyPosition.openPopup();
             			openPopUpOnceFlag = false;
             			closePopUpDelay();
-            			// alert("test");
             		}
             		
         		}else{
@@ -192,11 +176,6 @@
 		}
 
 
-  		// L.easyButton('fa-location-arrow', function(){ navigator.geolocation.watchPosition(locationOnSuccess,
-    //       locationOnFail, {
-    //       timeout: 30000,
-    //       enableHighAccuracy: true
-    //     });}).addTo(self.map.map);
 
   		L.easyButton('fa-location-arrow', findMyPosition).addTo(self.map.map);
 
